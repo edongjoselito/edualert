@@ -65,7 +65,7 @@
 
                                     <div class="form-group mb-3">
                                         <div class="checkbox checkbox-success">
-                                           <a href="Users/" class="text-muted float-right"><i class="ion ion-md-person-add"></i> Create Account</a>
+                                           <a href="Users/register" class="text-muted float-right"><i class="ion ion-md-person-add"></i> Create Account</a>
                                            
                                         </div>
                                     </div>
