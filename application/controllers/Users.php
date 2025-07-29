@@ -12,68 +12,35 @@ class Users extends CI_Controller
         $this->load->library(['form_validation', 'session']);
     }
 
-    public function index()
-    {
-        $data['users'] = $this->UsersModel->get_all_users();
-        $this->load->view('user_list', $data);
-    }
 
-    public function create()
-    {
-        $this->load->view('users/create');
-    }
+public function register()
+{
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+    $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+    $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 
-    public function store()
-    {
-        $password = $this->input->post('password');
+    if ($this->form_validation->run() == FALSE) {
+        $this->load->view('pages/signup');
+    } else {
         $data = [
-            'email'        => $this->input->post('email'),
-            'password'     => sha1($password), // CI3 encryption
-            'firstName'    => $this->input->post('firstName'),
-            'middleName'   => $this->input->post('middleName'),
-            'lastName'     => $this->input->post('lastName'),
-            'position'     => $this->input->post('position'),
-            'status'       => $this->input->post('status'),
-            'school_name'  => $this->input->post('school_name'),
-            'sdo'          => $this->input->post('sdo'),
-            'created_at'   => date('Y-m-d H:i:s')
+            'email'       => $this->input->post('email'),
+            'password'    => sha1($this->input->post('password')),  
+            'firstName'   => $this->input->post('firstName'),
+            'middleName'  => $this->input->post('middleName'),
+            'lastName'    => $this->input->post('lastName'),
+            'position'    => 'Learner',
+            'status'      => '1',
+            'school_id'     => $this->input->post('school_id'),
+            'sdo_id'         => $this->input->post('sdo_id'),
+            'image'         => 'avatar.png'
         ];
 
         $this->UsersModel->insert_user($data);
-        redirect('users');
+        $this->session->set_flashdata('msg', 'Registration successful! You may now login.');
+        redirect('pages/signup');
     }
+}
 
-    public function edit($id)
-    {
-        $data['user'] = $this->UsersModel->get_user($id);
-        $this->load->view('users/edit', $data);
-    }
-
-    public function update($id)
-    {
-        $data = [
-            'email'        => $this->input->post('email'),
-            'firstName'    => $this->input->post('firstName'),
-            'middleName'   => $this->input->post('middleName'),
-            'lastName'     => $this->input->post('lastName'),
-            'position'     => $this->input->post('position'),
-            'status'       => $this->input->post('status'),
-            'school_name'  => $this->input->post('school_name'),
-            'sdo'          => $this->input->post('sdo'),
-            'updated_at'   => date('Y-m-d H:i:s')
-        ];
-
-        if (!empty($this->input->post('password'))) {
-            $data['password'] = sha1($this->input->post('password'));
-        }
-
-        $this->UsersModel->update_user($id, $data);
-        redirect('users');
-    }
-
-    public function delete($id)
-    {
-        $this->UsersModel->delete_user($id);
-        redirect('users');
-    }
+   
+    
 }
