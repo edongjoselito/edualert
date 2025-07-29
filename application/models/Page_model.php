@@ -4,7 +4,12 @@
 class Page_model extends CI_Model{
 
     public function __construct(){
+<<<<<<< HEAD
         $this->load->database();
+=======
+        // $this->load->database();
+
+>>>>>>> d32ef8c1791c5fd3f221c111900f0bdb76def4c7
     }
 
 
