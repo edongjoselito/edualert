@@ -43,11 +43,12 @@ public function register()
         }
     }
 
-    public function get_divisions()
-    {
-        $divisions = $this->db->distinct()->select('division')->get('schools')->result();
-        echo json_encode($divisions);
-    }
+   public function get_divisions()
+{
+    $divisions = $this->db->distinct()->select('sdo AS division')->get('schools')->result();
+    echo json_encode($divisions);
+}
+
 
     public function get_schools_by_sdo()
     {
