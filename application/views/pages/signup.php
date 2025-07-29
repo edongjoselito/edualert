@@ -2,11 +2,9 @@
 <html>
 <head>
     <title>Signup</title>
-    <!-- App css -->
-    <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-    <link href="<?= base_url(); ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?= base_url(); ?>assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
-
+    <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/css/icons.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/css/app.min.css" rel="stylesheet">
     <style>
         .card {
             border: none;
@@ -66,13 +64,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="school_id">School Name</label>
-                            <input id="school_id" type="text" name="school_id" class="form-control" value="<?= set_value('school_id') ?>">
+                            <label for="division">Division</label>
+                            <select id="division" name="division" class="form-control" required>
+                                <option value="">Select Division</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="sdo_id">SDO</label>
-                            <input id="sdo_id" type="text" name="sdo_id" class="form-control" value="<?= set_value('sdo_id') ?>">
+                            <label for="school_id">School Name</label>
+                            <select id="school_id" name="school_id" class="form-control" required>
+                                <option value="">Select Division first</option>
+                            </select>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block mt-3">Sign Up</button>
@@ -83,5 +85,39 @@
     </div>
 </div>
 
+<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Load Division dropdown
+    $.getJSON("<?= base_url('Users/get_divisions') ?>", function(data) {
+        $.each(data, function(i, item) {
+            if (item.division) {
+                $('#division').append('<option value="' + item.division + '">' + item.division + '</option>');
+            }
+        });
+    });
+
+    // When a division is selected, load corresponding schools
+    $('#division').on('change', function () {
+        let sdo = $(this).val();
+        if (sdo !== '') {
+            $.ajax({
+                type: 'POST',
+                url: "<?= base_url('Users/get_schools_by_sdo') ?>",
+                data: { sdo: sdo },
+                dataType: 'json',
+                success: function (response) {
+                    $('#school_id').empty().append('<option value="">Select School</option>');
+                    $.each(response, function (i, school) {
+                        $('#school_id').append('<option value="' + school.school_id + '">' + school.schoolName + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('#school_id').html('<option value="">Select Division first</option>');
+        }
+    });
+});
+</script>
 </body>
 </html>

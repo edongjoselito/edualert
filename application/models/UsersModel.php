@@ -3,29 +3,23 @@ class UsersModel extends CI_Model
 {
     protected $table = 'users';
 
-    public function get_all_users()
-    {
-        return $this->db->get($this->table)->result();
-    }
+   public function get_divisions()
+{
+    $divisions = $this->db->distinct()->select('division')->get('schools')->result();
+    echo json_encode($divisions);
+}
 
-    public function get_user($id)
-    {
-        return $this->db->get_where($this->table, ['user_id' => $id])->row();
-    }
 
-    public function insert_user($data)
-    {
-        return $this->db->insert($this->table, $data);
-    }
+public function get_schools_by_sdo()
+{
+    $sdo = $this->input->post('sdo');
+    $schools = $this->db->select('school_id, schoolName')
+                        ->where('sdo', $sdo)
+                        ->get('schools')
+                        ->result();
+    echo json_encode($schools);
+}
 
-    public function update_user($id, $data)
-    {
-        $this->db->where('user_id', $id);
-        return $this->db->update($this->table, $data);
-    }
 
-    public function delete_user($id)
-    {
-        return $this->db->delete($this->table, ['user_id' => $id]);
-    }
+
 }
