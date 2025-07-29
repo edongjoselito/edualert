@@ -47,10 +47,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="email">Email</label>
                             <input id="email" type="email" name="email" class="form-control" value="<?= set_value('email') ?>" required>
-                        </div>
+                        </div> -->
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -63,19 +63,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="division">Division</label>
-                            <select id="division" name="division" class="form-control" required>
-                                <option value="">Select Division</option>
-                            </select>
-                        </div>
+                       <div class="form-group">
+    <label for="division">Division</label>
+    <select id="division" name="division" class="form-control" required>
+        <option value="">Select Division</option>
+        <?php foreach ($divisions as $div): ?>
+            <option value="<?= $div->division ?>"><?= $div->division ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
 
-                        <div class="form-group">
-                            <label for="school_id">School Name</label>
-                            <select id="school_id" name="school_id" class="form-control" required>
-                                <option value="">Select Division first</option>
-                            </select>
-                        </div>
+
+                      <div class="form-group">
+    <label for="school_id">School Name</label>
+    <select id="school_id" name="school_id" class="form-control" required>
+        <option value="">Select Division first</option>
+    </select>
+</div>
+
+
 
                         <button type="submit" class="btn btn-primary btn-block mt-3">Sign Up</button>
                     </form>
@@ -86,30 +92,24 @@
 </div>
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
-<script>
-$(document).ready(function () {
-    // Load Division dropdown
-    $.getJSON("<?= base_url('Users/get_divisions') ?>", function(data) {
-        $.each(data, function(i, item) {
-            if (item.division) {
-                $('#division').append('<option value="' + item.division + '">' + item.division + '</option>');
-            }
-        });
-    });
 
-    // When a division is selected, load corresponding schools
-    $('#division').on('change', function () {
-        let sdo = $(this).val();
-        if (sdo !== '') {
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#division').change(function(){
+        var division = $(this).val();
+        if (division !== '') {
             $.ajax({
-                type: 'POST',
-                url: "<?= base_url('Users/get_schools_by_sdo') ?>",
-                data: { sdo: sdo },
-                dataType: 'json',
-                success: function (response) {
-                    $('#school_id').empty().append('<option value="">Select School</option>');
-                    $.each(response, function (i, school) {
-                        $('#school_id').append('<option value="' + school.school_id + '">' + school.schoolName + '</option>');
+                url: "<?= base_url('users/get_schools_by_division') ?>",
+                method: "POST",
+                data: {division: division},
+                dataType: "json",
+                success: function(data){
+                    $('#school_id').html('<option value="">Select School</option>');
+                    $.each(data, function(i, school){
+                        $('#school_id').append('<option value="'+school.id+'">'+school.schoolName+'</option>');
                     });
                 }
             });
@@ -119,5 +119,7 @@ $(document).ready(function () {
     });
 });
 </script>
+
+
 </body>
 </html>
