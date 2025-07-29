@@ -42,38 +42,7 @@ class Pages extends CI_Controller{
         $this->load->view('templates/footer_dt');
 
     }
-
-    public function qr(){
-        
-        $page = "qr";
-
-        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
-            show_404();
-        }
-
-        $data['title'] = "QR Code"; 
-
-        $data['data'] = $this->Page_model->one_cond_row('profile','id',$this->uri->segment(3));
-
-        $this->load->view('pages/'.$page, $data);
-
-    }
-
-    public function verify(){
-        
-        $page = "qr_verify";
-
-        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
-            show_404();
-        }
-
-        $data['title'] = "QR Code"; 
-
-        $data['data'] = $this->Page_model->one_cond_row('profile','id',$this->uri->segment(3));
-
-        $this->load->view('pages/'.$page, $data);
-
-    }
+ 
 
     public function profile_new(){
 
@@ -138,8 +107,7 @@ class Pages extends CI_Controller{
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>','</div>');
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('email', 'Username', 'required');
 
         if($this->form_validation->run() == FALSE){
 
@@ -150,6 +118,7 @@ class Pages extends CI_Controller{
             }
 
             $data['title'] = "New User"; 
+            $data['school'] = $this->Page_model->no_cond('schools');
            
             
             $this->load->view('templates/header');

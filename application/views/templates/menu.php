@@ -104,9 +104,9 @@
 
                 <li><a href="<?= base_url(); ?>" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>  Dashboard  </span></a></li>
                 <li><a href="<?= base_url(); ?>Pages/profilelist" class="waves-effect"><i class="fas fa-book"></i><span>  Profile  </span></a></li>
-                <?php if($this->session->position == 'admin'){ ?>
+                <?php //if($this->session->position == 'admin'){ ?>
                 <li><a href="<?= base_url(); ?>pages/userlist" class="waves-effect"><i class="mdi mdi-account-supervisor"></i><span>  Manage User  </span></a></li>
-                <?php } ?>
+                <?php //} ?>
             </ul>
 
         </div>

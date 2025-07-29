@@ -1,6 +1,8 @@
-<!-- <?php if($this->session->logged_in == false){
+<?php 
+// if($this->session->logged_in == false){
 // redirect(base_url().'log_in');
-} ?> -->
+// } 
+?>
 
 
 <!DOCTYPE html>
