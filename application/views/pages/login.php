@@ -26,7 +26,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="card mt-4">
                             <div class="card-header p-4" style="background:#800000">
-                                <h4 class="text-white text-center mb-0 mt-0">EDUALERT</h4>
+                                <h4 class="text-white text-center mb-0 mt-0">EduAlert</h4>
                             </div>
                             <div class="card-body">
                             <?php if($this->session->flashdata('failed')) : ?>
@@ -65,7 +65,7 @@
 
                                     <div class="form-group mb-3">
                                         <div class="checkbox checkbox-success">
-                                           <!-- <a href="Pages/register" class="text-muted float-right"><i class="ion ion-md-person-add"></i> Register &nbsp;</a> -->
+                                           <a href="Users/" class="text-muted float-right"><i class="ion ion-md-person-add"></i> Create Account</a>
                                            
                                         </div>
                                     </div>
