@@ -26,7 +26,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="card mt-4">
                             <div class="card-header p-4" style="background:#800000">
-                                <h4 class="text-white text-center mb-0 mt-0">EduAlert</h4>
+                                <h4 class="text-white text-center mb-0 mt-0"><img src="<?= base_url(); ?>assets/images/ead.png" width="50%" alt=""></h4>
                             </div>
                             <div class="card-body">
                             <?php if($this->session->flashdata('failed')) : ?>

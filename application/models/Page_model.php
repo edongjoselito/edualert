@@ -4,12 +4,8 @@
 class Page_model extends CI_Model{
 
     public function __construct(){
-<<<<<<< HEAD
         $this->load->database();
-=======
-        // $this->load->database();
 
->>>>>>> d32ef8c1791c5fd3f221c111900f0bdb76def4c7
     }
 
 
@@ -36,13 +32,15 @@ public function user_insert(){
     $hash = password_hash($password, PASSWORD_DEFAULT);
     
     $data = array(
-    'username' => $this->input->post('username'),
+    'email' => $this->input->post('email'), 
     'password' => $hash,
-    'position' => 'user',
-    'fname' => $this->input->post('fname'),
-    'mname' => $this->input->post('mname'),
-    'lname' => $this->input->post('lname'),
-    'gender' => $this->input->post('gender'),
+    'firstName' => $this->input->post('firstName'), 
+    'middleName' => $this->input->post('middleName'), 
+    'lastName' => $this->input->post('lastName'), 
+    'position' => $this->input->post('position'), 
+    'status' => 1, 
+    'school_id' => $this->input->post('school_id'), 
+    'sdo_id' => $this->input->post('sdo_id'), 
     'image' => $filename
     ); 
 
@@ -144,9 +142,9 @@ public function lock_screen(){
 }
 
 public function check_dup_user($fname,$lname,$username){
-    $result = $this->db->where("fname",$fname);
-    $result = $this->db->where('lname',$lname);
-    $result = $this->db->or_where('username',$username);
+    $result = $this->db->where("firstName",$fname);
+    $result = $this->db->where('middleName',$lname);
+    $result = $this->db->or_where('lastName',$username);
     $result = $this->db->get('users');
     return $result;
 }

@@ -60,7 +60,7 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-4 col-form-label">DepEd Email<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <input type="email" required parsley-type="email" name="username" class="form-control" id="inputEmail3" placeholder="Email">
+                                                    <input type="email" required parsley-type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -91,34 +91,51 @@
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">First Name<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <input type="text" required class="form-control" name="fname" placeholder="First Name" oninput="this.value = this.value.toUpperCase()">
+                                                    <input type="text" required class="form-control" name="firstName" placeholder="First Name" oninput="this.value = this.value.toUpperCase()">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">Middle Name<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <input type="text" required name="mname" class="form-control" placeholder="Middle Name" oninput="this.value = this.value.toUpperCase()">
+                                                    <input type="text" required name="middleName" class="form-control" placeholder="Middle Name" oninput="this.value = this.value.toUpperCase()">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">Last Name<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <input type="text" required name="lname" class="form-control" placeholder="Last Name" oninput="this.value = this.value.toUpperCase()">
+                                                    <input type="text" required name="lastName" class="form-control" placeholder="Last Name" oninput="this.value = this.value.toUpperCase()">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <div class="col-md-8 offset-md-4">
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio1" required name="gender" value="0" class="custom-control-input">
-                                                        <label class="custom-control-label  text-xs" for="customRadio1">Male</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio2" required name="gender" value="1" class="custom-control-input">
-                                                        <label class="custom-control-label text-xs" for="customRadio2">Female</label>
-                                                    </div>
+                                                <label class="col-md-4 col-form-label">Position<span class="text-danger">*</span></label>
+                                                <div class="col-md-7">
+                                                    <select name="position" class="form-control" required>
+                                                        <option value="">Select Position</option>
+                                                        <?php 
+                                                        $pos = array(0 => 'Admin',1 => 'Learners',2 => 'School Focal',3 =>'Division Focal',4 =>'Regional Focal');
+                                                        
+                                                        foreach ($pos as $row => $key): ?>
+                                                            <option value="<?= $row; ?>"><?= $key; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-md-4 col-form-label">School<span class="text-danger">*</span></label>
+                                                <div class="col-md-7">
+                                                    <select name="position" class="form-control" required>
+                                                        <option value="">Select School</option>
+                                                        <?php 
+                                                        $pos = array(0 => 'Admin',1 => 'Learners',2 => 'School Focal',3 =>'Division Focal',4 =>'Regional Focal');
+                                                        
+                                                        foreach ($pos as $row => $key): ?>
+                                                            <option value="<?= $row; ?>"><?= $key; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                             </div>
 
