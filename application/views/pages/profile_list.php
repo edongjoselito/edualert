@@ -62,14 +62,12 @@
                                             <tbody>
                                                 <?php foreach($data as $row){?>
                                                 <tr>
-                                                    <td><?= $row->name; ?></td>
-                                                    <td><?= $row->docType; ?></td>
-                                                    <td><?= $row->description; ?></td>
-                                                    <td><?= $row->docNo; ?></td>
-                                                    <td><?= $row->dateReleased; ?></td>
-                                                    <td>
-                                                        <a target="_blank" href="<?= base_url(); ?>Pages/qr/<?= $row->id; ?>"><i class="mdi mdi-qrcode-scan text-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="QR Code"></i></a>
-                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                 </tr>
                                                 <?php } ?>
                                                 
