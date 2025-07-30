@@ -5,8 +5,24 @@ class Pages extends CI_Controller{
     
 
     public function view(){
-        
+           if($this->session->position == 2){
+            $page = "dashboard_school";
+            $data['incident'] = $this->Page_model->one_cond_count('incident_report','school_id',$this->session->school_id);
+            $data['action'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',1);
+            $data['noaction'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',0);
+           
+            }elseif($this->session->position == 3){
+            $page = "dashboard_division";
+
+
+           }elseif($this->session->position == 4){
+            $page = "dashboard_region";
+
+
+           }else{
             $page = "dashboard";
+           }
+
 
             if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
                 show_404();
@@ -34,6 +50,31 @@ class Pages extends CI_Controller{
         $data['title'] = "Profile List"; 
 
         $data['data'] = $this->Page_model->no_cond('profile');
+
+        $this->load->view('templates/header_dt');
+        $this->load->view('templates/menu');
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_dt');
+    }
+
+    public function incident_list(){
+        
+        $page = "incident";
+
+        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+            show_404();
+        }
+
+        $data['title'] = "Incident List"; 
+
+        if($this->uri->segment(3) == 1){
+            $data['data'] = $this->Page_model->two_cond('incident_report','school_id',$this->session->school_id,'ir_status',1);  
+        }elseif($this->uri->segment(3) == 2){
+            $data['data'] = $this->Page_model->two_cond('incident_report','school_id',$this->session->school_id,'ir_status',0);
+        }else{
+            $data['data'] = $this->Page_model->one_cond('incident_report','school_id',$this->session->school_id);
+        }
 
         $this->load->view('templates/header_dt');
         $this->load->view('templates/menu');
@@ -226,7 +267,7 @@ class Pages extends CI_Controller{
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>','</div>');
-        $this->form_validation->set_rules('firstName', 'First Name', 'required');
+        $this->form_validation->set_rules('con', 'Incident', 'required');
 
         if($this->form_validation->run() == FALSE){
 
@@ -287,6 +328,8 @@ class Pages extends CI_Controller{
                     $user_data = array(
                         'email' => $user_id['email'],
                         'position' => $user_id['position'],
+                        'school_id' => $user_id['school_id'],
+                        'sdo_id' => $user_id['sdo_id'],
                         'logged_in' => true
 
                     );

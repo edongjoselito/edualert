@@ -103,10 +103,21 @@
                 <li class="menu-title">Navigation</li>
 
                 <li><a href="<?= base_url(); ?>" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>  Dashboard  </span></a></li>
-                <li><a href="<?= base_url(); ?>Pages/profilelist" class="waves-effect"><i class="fas fa-book"></i><span>  Profile  </span></a></li>
-                <?php //if($this->session->position == 'admin'){ ?>
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class=" ion ion-md-settings "></i>
+                        <span>Incident Report</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/0">Total Incident</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/1">Incident with Action</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/2">Incident No Action</a></li>
+                    </ul>
+                </li>
+                <?php if($this->session->position == 0){ ?>
                 <li><a href="<?= base_url(); ?>pages/userlist" class="waves-effect"><i class="mdi mdi-account-supervisor"></i><span>  Manage User  </span></a></li>
-                <?php //} ?>
+                <?php } ?>
             </ul>
 
         </div>

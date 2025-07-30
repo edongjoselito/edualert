@@ -95,15 +95,13 @@ public function user_update_profile(){
 public function report_insert(){
 
     $data = array(
-    'incident_details' => $this->input->post('email'), 
-    'password' => $hash,
+    'incident_details' => $this->input->post('con'), 
     'firstName' => $this->input->post('firstName'), 
     'middleName' => $this->input->post('middleName'), 
     'lastName' => $this->input->post('lastName'), 
-    'position' => $this->input->post('position'), 
-    'status' => 1, 
-    'school_id' => $this->input->post('school_id'), 
-    'sdo_id' => $this->input->post('sdo_id'), 
+    'division_id' => $this->input->post('division_id'), 
+    'school_id' => $this->input->post('school'), 
+    'ir_status' => 0
     ); 
 
     return $this->db->insert('incident_report', $data);
@@ -201,6 +199,18 @@ public function one_cond_loop_order_by($table,$col,$val,$orderby,$orderbyvalue){
     $this->db->order_by($orderby, $orderbyvalue);
     $query = $this->db->get($table);
     return $query->result();
+}
+
+public function one_cond_count($table,$col,$val){
+    $this->db->where($col, $val);
+    $query = $this->db->get($table);
+    return $query;
+}
+public function two_cond_count($table,$col,$val,$col2,$val2){
+    $this->db->where($col, $val);
+    $this->db->where($col2, $val2);
+    $query = $this->db->get($table);
+    return $query;
 }
 
 

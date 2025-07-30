@@ -52,7 +52,7 @@
 
                     <?= validation_errors(); ?>
                     <?php $att = array('class' => 'parsley-examples'); ?>
-                    <?= form_open('Pages/davor_confession', array_merge($att)); ?>
+                    <?= form_open('Pages/incident_report', array_merge($att)); ?>
 
 
 
@@ -172,25 +172,25 @@
                                     </script>
 
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function(){
-    $('#division').change(function(){
-        var divisionID = $(this).val();
-        if(divisionID != ''){
-            $.ajax({
-                url: "<?= base_url('Pages/getSchoolsByDivision') ?>",
-                type: "POST",
-                data: { division_id: divisionID },
-                success: function(data){
-                    $('#school').html(data);
-                }
-            });
-        } else {
-            $('#school').html('<option value="">Select School</option>');
-        }
-    });
-});
-</script>
+                                    <script>
+                                    $(document).ready(function(){
+                                        $('#division').change(function(){
+                                            var divisionID = $(this).val();
+                                            if(divisionID != ''){
+                                                $.ajax({
+                                                    url: "<?= base_url('Pages/getSchoolsByDivision') ?>",
+                                                    type: "POST",
+                                                    data: { division_id: divisionID },
+                                                    success: function(data){
+                                                        $('#school').html(data);
+                                                    }
+                                                });
+                                            } else {
+                                                $('#school').html('<option value="">Select School</option>');
+                                            }
+                                        });
+                                    });
+                                    </script>
 
 <!-- Vendor js -->
 <script src="<?= base_url(); ?>assets/js/vendor.min.js"></script>

@@ -99,7 +99,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">Middle Name<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <input type="text" required name="middleName" class="form-control" placeholder="Middle Name" oninput="this.value = this.value.toUpperCase()">
+                                                    <input type="text" name="middleName" class="form-control" placeholder="Middle Name" oninput="this.value = this.value.toUpperCase()">
                                                 </div>
                                             </div>
 
