@@ -3,6 +3,12 @@
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
 
+            <!-- LOGO -->
+
+            <div class="card-header" style="background:#800000">
+                <h4 class="text-white text-center mb-0 mt-0"> <a href="<?= base_url(); ?>"><img src="<?= base_url(); ?>assets/images/ead.png" width="10%" alt=""></a></h4>
+            </div>
+            <!-- LOGO -->
         
 
         <div class="content-page" style="margin-left:0">
@@ -131,7 +137,7 @@
                                     
 
                                     <br />
-                                    <button type="submit" value="submit" class="btn" style="background:#800000">My Confession</button>
+                                    <button type="submit" value="submit" class="btn" style="background:#800000">Submit</button>
 
                                     </form>
                                     <br />

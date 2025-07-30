@@ -243,12 +243,10 @@ class Pages extends CI_Controller{
             
             $this->load->view('templates/header_public');
             $this->load->view('pages/'.$page, $data);
-            //$this->load->view('templates/footer');
-            //$this->load->view('templates/footer_select');
 
          }else{
 
-            $this->Page_model->user_update();
+            $this->Page_model->report_insert();
             $this->session->set_flashdata('success', 'Successfully saved.');
             redirect(base_url().'pages/userlist');
         }    

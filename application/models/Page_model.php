@@ -92,6 +92,24 @@ public function user_update_profile(){
     return $this->db->update('users', $data);
 }
 
+public function report_insert(){
+
+    $data = array(
+    'incident_details' => $this->input->post('email'), 
+    'password' => $hash,
+    'firstName' => $this->input->post('firstName'), 
+    'middleName' => $this->input->post('middleName'), 
+    'lastName' => $this->input->post('lastName'), 
+    'position' => $this->input->post('position'), 
+    'status' => 1, 
+    'school_id' => $this->input->post('school_id'), 
+    'sdo_id' => $this->input->post('sdo_id'), 
+    ); 
+
+    return $this->db->insert('incident_report', $data);
+    
+}
+
 public function login(){
 
     $password = $this->input->post('password');
