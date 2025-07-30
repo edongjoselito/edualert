@@ -158,7 +158,7 @@ class Pages extends CI_Controller{
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>','</div>');
-        $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('firstname', 'First Name', 'required');
 
         if($this->form_validation->run() == FALSE){
 
@@ -169,7 +169,8 @@ class Pages extends CI_Controller{
             }
 
             $data['title'] = "Update User"; 
-            $data['data'] = $this->Page_model->one_cond_row('users','id',$this->uri->segment(3));
+            $data['data'] = $this->Page_model->one_cond_row('users','user_id',$this->uri->segment(3));
+            $data['school'] = $this->Page_model->no_cond('schools');
            
             
             $this->load->view('templates/header');

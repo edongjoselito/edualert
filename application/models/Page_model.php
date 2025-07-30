@@ -52,10 +52,11 @@ public function user_update(){
     $id = $this->input->post('id'); 
 
     $data = array(
-        'fname' => $this->input->post('fname'),
-        'mname' => $this->input->post('mname'),
-        'lname' => $this->input->post('lname'),
-        'gender' => $this->input->post('gender')
+        'firstName' => $this->input->post('firstName'),
+        'middleName' => $this->input->post('middleName'),
+        'lastName' => $this->input->post('lastName'),
+        'position' => $this->input->post('position'),
+        'school_id' => $this->input->post('school_id'),
         );
 
     $this->db->where('id', $id);
