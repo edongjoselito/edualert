@@ -13,6 +13,9 @@ class Pages extends CI_Controller{
            
             }elseif($this->session->position == 3){
             $page = "dashboard_division";
+            $data['incident'] = $this->Page_model->one_cond_count('incident_report','division_id',$this->session->sdo_id);
+            $data['action'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',1);
+            $data['noaction'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',0);
 
 
            }elseif($this->session->position == 4){
@@ -67,6 +70,7 @@ class Pages extends CI_Controller{
         }
 
         $data['title'] = "Incident List"; 
+        if($this->session->position == 2){
 
         if($this->uri->segment(3) == 1){
             $data['data'] = $this->Page_model->two_cond('incident_report','school_id',$this->session->school_id,'ir_status',1);  
@@ -74,6 +78,17 @@ class Pages extends CI_Controller{
             $data['data'] = $this->Page_model->two_cond('incident_report','school_id',$this->session->school_id,'ir_status',0);
         }else{
             $data['data'] = $this->Page_model->one_cond('incident_report','school_id',$this->session->school_id);
+        }
+        }elseif($this->session->position == 3){
+            if($this->uri->segment(3) == 1){
+            $data['data'] = $this->Page_model->two_cond('incident_report','division_id',$this->session->sdo_id,'ir_status',1);  
+            }elseif($this->uri->segment(3) == 2){
+                $data['data'] = $this->Page_model->two_cond('incident_report','division_id',$this->session->sdo_id,'ir_status',0);
+            }else{
+                $data['data'] = $this->Page_model->one_cond('incident_report','division_id',$this->session->sdo_id);
+            }
+        }else{
+
         }
 
         $this->load->view('templates/header_dt');

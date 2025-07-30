@@ -2,7 +2,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <a class="btn btn-success" href="<?= base_url(); ?>pages/profile_new">Add New</a>
+                                    <!-- <a class="btn btn-success" href="<?= base_url(); ?>pages/profile_new">Add New</a> -->
                                     
 
                                 
@@ -58,8 +58,12 @@
                                             <tbody>
                                                 <?php foreach($data as $row){?>
                                                 <tr>
-                                                    <td><?= $row->incident_details; ?></td>
-                                                    <td></td>
+                                                    <td><?= $this->Page_model->limit_words($row->incident_details, 50); ?></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-primary">Update</a>
+                                                        <a href="#" class="btn btn-sm btn-purple">View</a>
+                                                        <a href="#" class="btn btn-sm btn-success">Remarks</a>
+                                                    </td>
                                                 </tr>
                                                 <?php } ?>
                                                 

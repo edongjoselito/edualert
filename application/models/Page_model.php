@@ -237,6 +237,11 @@ function delete_with_attach($table,$segment,$attach){
     $this->db->delete($table);
 }
 
+function limit_words($text, $limit) {
+    $words = explode(' ', $text);
+    return implode(' ', array_slice($words, 0, $limit)) . (count($words) > $limit ? '...' : '');
+}
+
 
 
 
