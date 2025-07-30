@@ -11,7 +11,7 @@
             <!-- LOGO -->
         
 
-        <div class="content-page" style="margin-left:0">
+        <div class="content-page" style="margin-left:0; margin-top:0">
             <div class="content">
 
                 <!-- Start Content-->
@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
-                                <h4 class="page-title">Incident Report</h4>
+                                <!-- <h4 class="page-title">Incident Report</h4> -->
                                 <div class="clearfix"></div>
                             </div>
                         </div>
