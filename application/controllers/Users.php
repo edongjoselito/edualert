@@ -7,20 +7,15 @@ class Users extends CI_Controller
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model('UsersModel');
-        $this->load->helper(['form', 'url']);
-        $this->load->library(['form_validation', 'session']);
     }
 
-   public function register()
-{
-    $this->load->library('form_validation');
+   public function register(){
 
     $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
     $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 
     if ($this->form_validation->run() == FALSE) {
-        $data['divisions'] = $this->UsersModel->getDivisions(); // Load unique divisions
+        $data['divisions'] = $this->Page_model->no_cond('sdo'); // Load unique divisions
         $this->load->view('pages/signup', $data);
     } else {
         $data = [
@@ -35,10 +30,7 @@ class Users extends CI_Controller
             'school_id'   => $this->input->post('school_id'),
             'image'       => 'avatar.png'
         ];
-
-        $this->load->model('UsersModel');
-
-        // Call model method to insert user
+        
         if ($this->UsersModel->insert_user($data)) {
             $this->session->set_flashdata('msg', 'Registration successful! You may now login.');
         } else {

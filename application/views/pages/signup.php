@@ -64,22 +64,22 @@
                         </div>
 
                        <div class="form-group">
-    <label for="division">Division</label>
-    <select id="division" name="division" class="form-control" required>
-        <option value="">Select Division</option>
-        <?php foreach ($divisions as $div): ?>
-            <option value="<?= $div->division ?>"><?= $div->division ?></option>
-        <?php endforeach; ?>
-    </select>
-</div>
+                            <label for="division">Division</label>
+                            <select id="division" name="division" class="form-control" required>
+                                <option value="">Select Division</option>
+                                <?php foreach ($divisions as $row): ?>
+                                    <option value="<?= $row->id ?>"><?= $row->description; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
 
 
-                      <div class="form-group">
-    <label for="school_id">School Name</label>
-    <select id="school_id" name="school_id" class="form-control" required>
-        <option value="">Select Division first</option>
-    </select>
-</div>
+                        <div class="form-group">
+                            <label for="school_id">School Name</label>
+                            <select id="school_id" name="school_id" class="form-control" required>
+                                <option value="">Select Division first</option>
+                            </select>
+                        </div>
 
 
 
