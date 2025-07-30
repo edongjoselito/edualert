@@ -219,6 +219,51 @@ class Pages extends CI_Controller{
         }
     }
 
+
+    public function  incident_report(){
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>','</div>');
+        $this->form_validation->set_rules('firstName', 'First Name', 'required');
+
+        if($this->form_validation->run() == FALSE){
+
+        $page = "confessions";
+
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }
+
+            $data['title'] = "Update User"; 
+            $data['school'] = $this->Page_model->no_cond('schools');
+            $data['sdo'] = $this->Page_model->one_cond('sdo','region_id',12);
+           
+            
+            $this->load->view('templates/header_public');
+            $this->load->view('pages/'.$page, $data);
+            //$this->load->view('templates/footer');
+            //$this->load->view('templates/footer_select');
+
+         }else{
+
+            $this->Page_model->user_update();
+            $this->session->set_flashdata('success', 'Successfully saved.');
+            redirect(base_url().'pages/userlist');
+        }    
+    } 
+
+    public function getSchoolsByDivision() {
+    $division_id = $this->input->post('division_id');
+    $schools = $this->Page_model->one_cond('schools', 'p_id', $division_id);
+
+    echo '<option value="">Select School</option>';
+    foreach($schools as $school){
+        echo '<option value="'.$school->school_id.'">'.strtoupper($school->schoolName).'</option>';
+    }
+}
+
     public function log_in(){
 
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
