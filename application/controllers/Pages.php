@@ -158,7 +158,7 @@ class Pages extends CI_Controller{
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>','</div>');
-        $this->form_validation->set_rules('firstname', 'First Name', 'required');
+        $this->form_validation->set_rules('firstName', 'First Name', 'required');
 
         if($this->form_validation->run() == FALSE){
 

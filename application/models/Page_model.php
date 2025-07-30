@@ -59,7 +59,7 @@ public function user_update(){
         'school_id' => $this->input->post('school_id'),
         );
 
-    $this->db->where('id', $id);
+    $this->db->where('user_id', $id);
     return $this->db->update('users', $data);
 }
 public function user_pass(){
@@ -74,7 +74,7 @@ public function user_pass(){
         'password' => $hash,
         );
 
-    $this->db->where('id', $id);
+    $this->db->where('user_id', $id);
     return $this->db->update('users', $data);
 }
 public function user_update_profile(){
@@ -88,7 +88,7 @@ public function user_update_profile(){
         'image' => $filename
         );
 
-    $this->db->where('id', $id);
+    $this->db->where('user_id', $id);
     return $this->db->update('users', $data);
 }
 
