@@ -54,6 +54,27 @@
                     <?php $att = array('class' => 'parsley-examples'); ?>
                     <?= form_open('Pages/incident_report', array_merge($att)); ?>
 
+                    <div class="row">
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    DECLARATION AND ATTESTATION:
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="card-bodyquote">
+                                        <p class="text-justify">DepEd Region XI abides and strictly enforces the provisions of RA 10173 or the Data Privacy Act of 2012. By selecting the checkbox below and clicking "submit" you give your consent to the following: 1. Allow DepEd Region XI to collect, process and keep your personal information for lawful purposes; 2. DepEd Davao Oriental cannot disclose your personal information to any third party. It can, however, share said information with its functional divisions, sections, units, and schools for employment purposes. You confirm that you are well-informed of the purposes of this effort and have agreed to the above-cited information.</p>
+                                        <footer class="text-xs"> <input type="checkbox" required name="confirm" value="1"> &nbsp;<cite class="text-danger">confirm that I have read and understood the above information and agree to its every detail.</cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- end row -->
+
 
 
 
