@@ -10,6 +10,7 @@
                                         </ol>
                                     </div>
 
+                                    
                                 <?php if($this->session->flashdata('success')) : ?>
 
                                     <?= '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -127,17 +128,17 @@
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">School<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <select name="position" class="form-control" required>
+                                                    <select name="school_id" class="form-control" data-toggle="select2" required>
                                                         <option value="">Select School</option>
                                                         <?php 
-                                                        $pos = array(0 => 'Admin',1 => 'Learners',2 => 'School Focal',3 =>'Division Focal',4 =>'Regional Focal');
-                                                        
-                                                        foreach ($pos as $row => $key): ?>
-                                                            <option value="<?= $row; ?>"><?= $key; ?></option>
+                                                        foreach ($school as $row): ?>
+                                                            <option value="<?= $row->school_id; ?>"><?= $row->schoolName; ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            <input type="hidden" name="sdo_id" value="12">
 
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">Profile Picture</label>
@@ -145,6 +146,8 @@
                                                     <input type="file" name="file" class="form-control" placeholder="Profile Picture">
                                                 </div>
                                             </div>
+
+                                            
                                             
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-8 offset-md-4">

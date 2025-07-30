@@ -92,6 +92,7 @@ class Pages extends CI_Controller{
         $data['title'] = "User List"; 
 
         $data['users'] = $this->Page_model->no_cond('users');
+        $data['school'] = $this->Page_model->no_cond('schools');
 
         $this->load->view('templates/header_dt');
         $this->load->view('templates/menu');
@@ -121,11 +122,11 @@ class Pages extends CI_Controller{
             $data['school'] = $this->Page_model->no_cond('schools');
            
             
-            $this->load->view('templates/header');
+            $this->load->view('templates/header_select');
             $this->load->view('templates/menu');
             $this->load->view('pages/'.$page, $data);
             $this->load->view('templates/footer');
-            $this->load->view('templates/footer_basic');
+            $this->load->view('templates/footer_select');
 
          }else{
             $fname = $this->input->post('fname');
@@ -220,8 +221,8 @@ class Pages extends CI_Controller{
     public function log_in(){
 
         $this->form_validation->set_error_delimiters('<div class="error">','</div>');
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'uassword', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('password', 'password', 'required');
 
         if($this->form_validation->run() == FALSE){
 
@@ -240,7 +241,7 @@ class Pages extends CI_Controller{
                 if($user_id){
 
                     $user_data = array(
-                        'username' => $user_id['username'],
+                        'email' => $user_id['email'],
                         'position' => $user_id['position'],
                         'logged_in' => true
 
@@ -281,13 +282,10 @@ class Pages extends CI_Controller{
                 if($user_id){
 
                     $user_data = array(
-                        'username' => $user_id['username'],
-                        'user' => $user_id['fname'].' '.$user_id['mname'].' '.$user_id['lname'],
+                        'email' => $user_id['email'],
+                        'user' => $user_id['firstName'].' '.$user_id['middleName'].' '.$user_id['lastName'],
                         'position' => $user_id['position'],
-                        'office' => $user_id['office'],
-                        'image' => $user_id['image'],
-                        'id' => $user_id['id'],
-                        'com_id' => $user_id['company_id'],
+                        'id' => $user_id['user_id'],
                         'logged_in' => true
 
                     );

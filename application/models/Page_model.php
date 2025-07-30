@@ -95,7 +95,7 @@ public function login(){
 
     $password = $this->input->post('password');
     
-    $this->db->where('username', $this->input->post('username', true));
+    $this->db->where('email', $this->input->post('email', true));
     //$this->db->where('status', 0);
     //$this->db->where('Password', $this->input->post('Password', true));
     $result = $this->db->get('users');
@@ -119,7 +119,7 @@ public function lock_screen(){
 
     $password = $this->input->post('password');
     
-    $this->db->where('username', $this->session->username);
+    $this->db->where('email', $this->session->email);
     //$this->db->where('status', 0);
     //$this->db->where('Password', $this->input->post('Password', true));
     $result = $this->db->get('users');
