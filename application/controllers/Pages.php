@@ -57,14 +57,19 @@ class Pages extends CI_Controller{
             $ren = 'Division Focal';
 
            }elseif($this->session->position == 4){
+            $statuses = [1 => 'snewcase',2 => 'songoing',3 => 'sresolve',4 => 'sendorsed',5 => 'sterminate',6 => 'stracing',7 => 'smonitor'];
+            $stat = [1 => 'newcase',2 => 'ongoing',3 => 'resolve',4 => 'endorsed',5 => 'terminate',6 => 'tracing',7 => 'monitor'];
+            
             $data['incident'] = $this->Page_model->no_cond_count('incident_report');
-            $data['newcase'] = $this->Page_model->one_cond_count('incident_report','ir_status',1);
-            $data['ongoing'] = $this->Page_model->one_cond_count('incident_report','ir_status',2);
-            $data['resolve'] = $this->Page_model->one_cond_count('incident_report','ir_status',3);
-            $data['endorsed'] = $this->Page_model->one_cond_count('incident_report','ir_status',4);
-            $data['terminate'] = $this->Page_model->one_cond_count('incident_report','ir_status',5);
-            $data['tracing'] = $this->Page_model->one_cond_count('incident_report','ir_status',6);
-            $data['monitor'] = $this->Page_model->one_cond_count('incident_report','ir_status',7);
+            foreach ($stat as $status => $key) {
+                $data[$key] = $this->Page_model->one_cond_count('incident_report', 'ir_status', $status);
+            }
+
+            $data['sincident'] = $this->Page_model->no_cond_count('incident_report');
+
+            foreach ($statuses as $status => $key) {
+                $data[$key] = $this->Page_model->one_cond_count('seek_help', 'sh_status', $status);
+            }
 
             $data['region'] = $this->Page_model->one_cond('sdo','region_id',12);
 
