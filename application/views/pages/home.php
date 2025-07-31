@@ -20,18 +20,48 @@
       padding: 0;
     }
 
-    .navbar {
+  .navbar {
   background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.navbar .nav-link,
-.navbar .navbar-brand {
+.navbar .nav-link {
+  position: relative;
   color: #800000 !important;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #800000;
+  transition: width 0.3s;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar .nav-link:hover {
+  color: #a00000 !important;
 }
 
 .navbar .nav-link.btn {
-  border-color: #800000;
+  border: 2px solid #800000;
   color: #800000 !important;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link.btn:hover {
+  background-color: #800000;
+  color: #fff !important;
 }
 
 
@@ -121,11 +151,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-          <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="log_in">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+             <li class="nav-item">
+  <a class="nav-link" href="<?= base_url('pages/tracking'); ?>">Tracking</a>
+</li>
+              <li class="nav-item"><a class="nav-link btn ms-2" href="log_in">Login</a></li>
         </ul>
       </div>
     </div>
