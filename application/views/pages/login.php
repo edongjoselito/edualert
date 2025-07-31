@@ -105,7 +105,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="System Logo">
+                <img src="<?=base_url(); ?>assets/images/edualert-logo.png" alt="EduAlert Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -142,10 +142,10 @@
         </p>
 
         <ul class="list-unstyled mt-4 mb-5">
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Submit incident reports anytime, anywhere</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Option for anonymous submissions</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Track resolution and response</li>
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Built for school safety and support</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>✔ Submit incident reports anytime, anywhere</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>✔ Option for anonymous submissions</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>✔ Track resolution and response</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>✔ Built for school safety and support</li>
         </ul>
 
         <div class="d-flex flex-wrap gap-3">
