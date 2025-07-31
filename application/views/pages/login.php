@@ -1,107 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <title>EDUALERT - Empowering and Defending Underage learners through Active Logging of Events, Reports, and Threats</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Responsive bootstrap 4 admin template" name="description" />
-        <meta content="Coderthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/dts.ico">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAlert - Landing Page</title>
 
-        <!-- App css -->
-        <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-        <link href="<?= base_url(); ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="<?= base_url(); ?>assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    </head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <body class="authentication-page">
+    <style>
+        :root {
+            --primary-color: #800000;
+        }
 
-        <div class="account-pages my-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card mt-4">
-                            <div class="card-header p-4" style="background:#800000">
-                                <h4 class="text-white text-center mb-0 mt-0"><img src="<?= base_url(); ?>assets/images/ead.png" width="50%" alt=""></h4>
-                            </div>
-                            <div class="card-body">
-                            <?php if($this->session->flashdata('failed')) : ?>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f3dede, #f9e9e9);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
 
-                            <?= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>'
-                                    .$this->session->flashdata('failed'). 
-                                '</div>'; 
-                            ?>
-                            <?php endif; ?> 
-                            <?php if($this->session->flashdata('success')) : ?>
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-                                <?= '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>'
-                                        .$this->session->flashdata('success'). 
-                                    '</div>'; 
-                                ?>
-                                <?php endif; ?> 
-                                
-                            <?= validation_errors(); ?>
-                                <?= form_open('log_in') ?>
+        .navbar-brand img {
+            height: 40px;
+        }
 
-                                    <div class="form-group mb-3">
-                                        <label for="emailaddress">Email :</label>
-                                        <input class="form-control" type="text" id="Username" name="email"  autocomplete="off" >
-                                    </div>
+        .navbar-nav .nav-link {
+            color: var(--primary-color);
+        }
 
-                                    <div class="form-group mb-3">
-                                        <label for="password">Password :</label>
-                                        <input class="form-control" type="password" required="" name="password"  autocomplete="off" >
-                                    </div>
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.btn:hover {
+            color: #fff;
+            background-color: var(--primary-color);
+        }
 
-                                    <div class="form-group mb-3">
-                                        <div class="checkbox checkbox-success">
-                                           <a href="Users/register" class="text-muted float-right"><i class="ion ion-md-person-add"></i> Create Account</a>
-                                           
-                                        </div>
-                                    </div>
-                                    <br /><br />
-                                    <div class="form-group row text-center mb-12">
-                                        <div class="col-12">
-                                            <button class="btn btn-md btn-block waves-effect waves-light" style="background:#800000" type="submit" name="submit">Sign In</button>
-                                        </div>
-                                    </div>
+        .nav-link.btn {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
 
-                                
+        .carousel-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-                                    
-                                </form>
+        .carousel-inner img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
 
-                            </div>
-                            <!-- end card-body -->
-                        </div>
-                        <!-- end card -->
+        .container-box {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 40px auto;
+        }
 
-                        <!-- end row -->
+        .info-section {
+            padding: 40px;
+            flex: 1 1 100%;
+            background: linear-gradient(135deg, #a94442, var(--primary-color));
+            color: #fff;
+        }
 
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
+        .info-section h1 {
+            font-weight: 600;
+            font-size: 2.5rem;
+        }
 
+        .info-section p {
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="System Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary ms-2" href="login.php">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <!-- Vendor js -->
-        <script src="<?= base_url(); ?>assets/js/vendor.min.js"></script>
+    <!-- Main Content -->
+  <div class="container my-5">
+    <div class="bg-light p-5 rounded shadow-lg text-start">
+        <h1 class="mb-4 text-maroon fw-bold">Welcome to <span class="text-dark">EduAlert v1.0</span></h1>
+        <p class="lead text-muted">
+            EduAlert is a <strong>School Incident Reporting System</strong> designed to empower students, faculty, and staff in reporting and tracking school-related incidents.
+            The platform ensures a secure and confidential way to seek help and report incidents—either identified or anonymously.
+        </p>
 
-        <!-- App js -->
-        <script src="<?= base_url(); ?>assets/js/app.min.js"></script>
+        <ul class="list-unstyled mt-4 mb-5">
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Submit incident reports anytime, anywhere</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Option for anonymous submissions</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Track resolution and response</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Built for school safety and support</li>
+        </ul>
 
-    </body>
+        <div class="d-flex flex-wrap gap-3">
+            <a href="<?= base_url('incident_report/create'); ?>" class="btn btn-success btn-lg px-4 shadow-sm">
+                <i class="bi bi-flag-fill me-2"></i>Submit Incident Report
+            </a>
+            <a href="<?= base_url('help'); ?>" class="btn btn-warning btn-lg text-white px-4 shadow-sm">
+                <i class="bi bi-life-preserver me-2"></i>Seek Help
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .text-maroon {
+        color: #800000;
+    }
+</style>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
 </html>
