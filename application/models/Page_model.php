@@ -210,6 +210,11 @@ public function one_cond_loop_order_by($table,$col,$val,$orderby,$orderbyvalue){
     return $query->result();
 }
 
+public function no_cond_count($table){
+    $query = $this->db->get($table);
+    return $query;
+}
+
 public function one_cond_count($table,$col,$val){
     $this->db->where($col, $val);
     $query = $this->db->get($table);
