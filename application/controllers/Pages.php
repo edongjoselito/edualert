@@ -35,7 +35,7 @@ class Pages extends CI_Controller{
             $data['monitor'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',7);
 
             $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
-            $ren = 'Division';
+            $ren = 'Division Focal';
 
            }elseif($this->session->position == 4){
             $data['incident'] = $this->Page_model->no_cond_count('incident_report');
@@ -50,7 +50,7 @@ class Pages extends CI_Controller{
             $data['region'] = $this->Page_model->one_cond('sdo','region_id',12);
 
             $page = "dashboard_region";
-            $ren = 'Region';
+            $ren = 'Regional Focal';
 
 
            }else{
@@ -72,6 +72,11 @@ class Pages extends CI_Controller{
             $this->load->view('templates/footer_basic');
 
     }
+
+   public function tracking()
+        {
+            $this->load->view('pages/tracking');  // ✅ include folder name
+     }
 
     public function homepage(){
           

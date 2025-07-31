@@ -106,7 +106,7 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class=" ion ion-md-settings "></i>
-                        <span>Incident Report</span>
+                        <span>Incident Reports</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
@@ -116,8 +116,8 @@
                         <li><a href="<?= base_url(); ?>Pages/incident_list/4">Case Endorsed</a></li>
                         <li><a href="<?= base_url(); ?>Pages/incident_list/5">Terminated</a></li> 
                         <li><a href="<?= base_url(); ?>Pages/incident_list/6">For Tracing</a></li> 
-                        <li><a href="<?= base_url(); ?>Pages/incident_list/7">for Monitoring</a></li>
-                        <li><a href="<?= base_url(); ?>Pages/incident_list/0">Total Incident</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/7">For Monitoring</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/0">Total Incidents</a></li>
                     </ul>
                 </li>
                 <?php if($this->session->position == 0){ ?>

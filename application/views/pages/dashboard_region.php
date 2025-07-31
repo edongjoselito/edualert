@@ -103,7 +103,7 @@
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
                                                 <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/7" class="text-white"><span data-plugin="counterup"><?= $monitor->num_rows(); ?></a></span></h2>
-                                                <p class="mb-0">for Monitoring</p>
+                                                <p class="mb-0">For Monitoring</p>
                                             </div>
                                             <i class="ion-md-eye"></i>
                                         </div>
@@ -117,7 +117,7 @@
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
                                                 <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $incident->num_rows(); ?></a></span></h2>
-                                                <p class="mb-0">Total Incident</p>
+                                                <p class="mb-0">Total Incidents</p>
                                             </div>
                                             <i class="mdi mdi-comment-multiple"></i>
                                         </div>
@@ -142,7 +142,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>School Name</th>
+                                                        <th>Division</th>
                                                         <th>New Case</th> 
                                                         <th>Ongoing Case</th>
                                                         <th>Resolved</th>
