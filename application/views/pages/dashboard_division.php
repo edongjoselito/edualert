@@ -154,24 +154,23 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php 
-                                                        $c=1; foreach($school as $row){
-                                                        $incident = $this->Page_model->one_cond_count('incident_report','school_id',$row->school_id);
-                                                        $action = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',1);
-                                                        $noaction = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',0);
-                                                    ?>
-
-                                                    <tr>
-                                                        <th scope="row"><?= $c++; ?></th>
-                                                        <td><?= strtoupper($row->schoolName); ?></td>
-                                                        <td><?= $incident->num_rows(); ?></td>
-                                                        <td><?= $action->num_rows(); ?></td>
-                                                        <td><?= $noaction->num_rows(); ?></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <?php } ?>
+                                                        $c = 1; 
+                                                        foreach ($school as $row) {
+                                                                echo "<tr><th scope='row'>{$c}</th><td>" . strtoupper($row->schoolName) . "</td>";
+                                                                for ($i = 1; $i <= 7; $i++) {
+                                                                    $status = $this->Page_model->two_cond_count('incident_report', 'school_id', $row->school_id, 'ir_status', $i);
+                                                                    
+                                                                    if($status->num_rows() != 0){
+                                                                    echo "<td class='text-center'><span class='badge badge-danger'>" . $status->num_rows() . "</td>";
+                                                                    }else{
+                                                                     echo "<td class='text-center'><span class='badge badge-info'>" . $status->num_rows() . "</td>";   
+                                                                    }
+                                                                    
+                                                                }
+                                                                echo "</tr>";
+                                                                $c++;
+                                                        }
+                                                        ?>
                                                     
                                                 </tbody>
                                             </table>
