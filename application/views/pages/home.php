@@ -40,7 +40,7 @@
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.btn:hover {
-            color: #fff;
+            color: #800000;
             background-color: var(--primary-color);
         }
 
