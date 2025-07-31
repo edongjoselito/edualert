@@ -21,6 +21,15 @@ class Pages extends CI_Controller{
             $data['terminate'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',5);
             $data['tracing'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',6);
             $data['monitor'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',7);
+
+            $data['sincident'] = $this->Page_model->one_cond_count('seek_help','school_id',$this->session->school_id);
+            $data['snewcase'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',1);
+            $data['songoing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',2);
+            $data['sresolve'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',3);
+            $data['sendorsed'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',4);
+            $data['sterminate'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',5);
+            $data['stracing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',6);
+            $data['smonitor'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',7);
             $ren = 'School';
            
             }elseif($this->session->position == 3){
@@ -34,8 +43,18 @@ class Pages extends CI_Controller{
             $data['tracing'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',6);
             $data['monitor'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',7);
 
+            $data['sincident'] = $this->Page_model->one_cond_count('seek_help','division_id',$this->session->sdo_id);
+            $data['snewcase'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',1);
+            $data['songoing'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',2);
+            $data['sresolve'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',3);
+            $data['sendorsed'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',4);
+            $data['sterminate'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',5);
+            $data['stracing'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',6);
+            $data['smonitor'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',7);
+
             $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
-            $ren = 'Division Focal';
+            $data['sschool'] = $this->Page_model->two_join_no_cond_gb('seek_help', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
+            $ren = 'Division';
 
            }elseif($this->session->position == 4){
             $data['incident'] = $this->Page_model->no_cond_count('incident_report');
@@ -143,6 +162,49 @@ class Pages extends CI_Controller{
                 $data['data'] = $this->Page_model->one_cond('incident_report', 'ir_status', $status);
             } else {
                 $data['data'] = $this->Page_model->no_cond('incident_report');
+            }
+
+        }
+
+        $this->load->view('templates/header_dt');
+        $this->load->view('templates/menu');
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_dt');
+
+    }
+
+    public function seek_help_list(){
+        
+        $page = "seekhelp";
+
+        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+            show_404();
+        }
+
+        $data['title'] = "Incident List"; 
+
+        $status = $this->uri->segment(3);
+        $school_id = $this->session->school_id;
+
+        if($this->session->position == 2){
+
+        if ($status >= 1 && $status <= 7) {
+            $data['data'] = $this->Page_model->two_cond('seek_help', 'school_id', $school_id, 'sh_status', $status);
+        } else {
+            $data['data'] = $this->Page_model->one_cond('seek_help', 'school_id', $school_id);
+        }
+        }elseif($this->session->position == 3){
+            if ($status >= 1 && $status <= 7) {
+                $data['data'] = $this->Page_model->two_cond('seek_help', 'division_id', $this->session->sdo_id, 'sh_status', $status);
+            } else {
+                $data['data'] = $this->Page_model->one_cond('seek_help', 'division_id', $this->session->sdo_id);
+            }
+        }else{
+            if ($status >= 1 && $status <= 7) {
+                $data['data'] = $this->Page_model->one_cond('seek_help', 'sh_status', $status);
+            } else {
+                $data['data'] = $this->Page_model->no_cond('seek_help');
             }
 
         }
@@ -397,36 +459,71 @@ public function incident_report()
     }
 }
 
-    public function  help(){
+    public function help()
+{
+    $this->form_validation->set_error_delimiters(
+        '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>',
+        '</div>'
+    );
 
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>','</div>');
-        $this->form_validation->set_rules('con', 'Incident', 'required');
+    $this->form_validation->set_rules('con', 'Incident', 'required');
 
-        if($this->form_validation->run() == FALSE){
+    if ($this->form_validation->run() == FALSE) {
 
         $page = "seek_help";
 
-            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
-                show_404();
-            }
+        if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
+            show_404();
+        }
 
-            $data['title'] = "Update User"; 
-            $data['school'] = $this->Page_model->no_cond('schools');
-            $data['sdo'] = $this->Page_model->one_cond('sdo','region_id',12);
-           
-            $this->load->view('templates/header_public');
-            $this->load->view('pages/'.$page, $data);
+        $data['title'] = "Seek Help";
+        $data['school'] = $this->Page_model->no_cond('schools');
+        $data['sdo'] = $this->Page_model->one_cond('sdo', 'region_id', 12);
 
-         }else{
+        $this->load->view('templates/header_public');
+        $this->load->view('pages/' . $page, $data);
 
-            $this->Page_model->report_insert();
-            $this->session->set_flashdata('success', 'Successfully saved.');
-            redirect(base_url().'pages/userlist');
-        }    
-    } 
+    } else {
+
+        $tracking_no = $this->Page_model->seek_help_insert();
+        $recipient_email = $this->input->post('email');
+
+        // ✅ Email configuration (optional if already set in config/email.php)
+        $this->email->from('noreply@yourdomain.com', 'EduAlert System');
+        $this->email->to($recipient_email);
+        $this->email->subject('Your Incident Report Has Been Received');
+
+        $message = "
+        <h3>Thank you for submitting your incident report.</h3>
+        <p>Your tracking number is:</p>
+        <h2 style='color: red; text-align:center;'>$tracking_no</h2>
+        <p>Please keep this number for future reference.</p>
+        <br><small>This is an automated message. Do not reply.</small>";
+
+        $this->email->message($message);
+
+        if (!$this->email->send()) {
+            log_message('error', 'Email failed to send to ' . $recipient_email);
+        }
+
+        // ✅ Flash success
+        $this->session->set_flashdata('success',
+            '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h5 class="alert-heading mb-1">✅ Incident Report Submitted Successfully!</h5>
+                <p class="mb-0">Please take note of your <strong>Tracking Number</strong> below:</p>
+                <h4 class="mt-2 mb-0 text-center text-danger"><strong>' . $tracking_no . '</strong></h4>
+                <hr class="my-2">
+                <p class="mb-0 text-muted">A confirmation email has been sent to <strong>' . $recipient_email . '</strong>.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>'
+        );
+
+        redirect($this->agent->referrer());
+    }
+}
 
 
     public function getSchoolsByDivision() {

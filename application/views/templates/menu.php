@@ -105,7 +105,7 @@
                 <li><a href="<?= base_url(); ?>" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>  Dashboard  </span></a></li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class=" ion ion-md-settings "></i>
+                        <i class="ion ion-md-megaphone"></i>
                         <span>Incident Reports</span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -118,6 +118,23 @@
                         <li><a href="<?= base_url(); ?>Pages/incident_list/6">For Tracing</a></li> 
                         <li><a href="<?= base_url(); ?>Pages/incident_list/7">For Monitoring</a></li>
                         <li><a href="<?= base_url(); ?>Pages/incident_list/0">Total Incidents</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="ion ion-md-contacts"></i>
+                        <span>Seek Help</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/1">New Case</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/2">Ongoing Case</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/3">Resolved</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/4">Case Endorsed</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/5">Terminated</a></li> 
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/6">For Tracing</a></li> 
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/7">For Monitoring</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/seek_help_list/0">Total Incidents</a></li>
                     </ul>
                 </li>
                 <?php if($this->session->position == 0){ ?>

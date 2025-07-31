@@ -52,7 +52,7 @@
 
                     <?= validation_errors(); ?>
                     <?php $att = array('class' => 'parsley-examples'); ?>
-                    <?= form_open('Pages/incident_report', array_merge($att)); ?>
+                    <?= form_open('Pages/help', array_merge($att)); ?>
 
                     <div class="row">
 
