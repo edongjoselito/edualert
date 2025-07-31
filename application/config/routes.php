@@ -6,6 +6,7 @@ $route['default_controller'] = 'pages/view';
 
 $route['homepage'] = 'pages/homepage';
 $route['incident_report'] = 'pages/incident_report';
+$route['help'] = 'pages/help';
 $route['log_in'] = 'pages/log_in';
 $route['logout'] = 'pages/logout';
 $route['lock'] = 'pages/lock';

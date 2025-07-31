@@ -354,6 +354,37 @@ public function incident_report()
     }
 }
 
+    public function  help(){
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>','</div>');
+        $this->form_validation->set_rules('con', 'Incident', 'required');
+
+        if($this->form_validation->run() == FALSE){
+
+        $page = "seek_help";
+
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }
+
+            $data['title'] = "Update User"; 
+            $data['school'] = $this->Page_model->no_cond('schools');
+            $data['sdo'] = $this->Page_model->one_cond('sdo','region_id',12);
+           
+            $this->load->view('templates/header_public');
+            $this->load->view('pages/'.$page, $data);
+
+         }else{
+
+            $this->Page_model->report_insert();
+            $this->session->set_flashdata('success', 'Successfully saved.');
+            redirect(base_url().'pages/userlist');
+        }    
+    } 
+
     public function getSchoolsByDivision() {
     $division_id = $this->input->post('division_id');
     $schools = $this->Page_model->one_cond('schools', 'division_id', $division_id);
