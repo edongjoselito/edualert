@@ -46,7 +46,7 @@ class Pages extends CI_Controller{
             $data['monitor'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',7);
 
             $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
-            
+
             $page = "dashboard_region";
             $ren = 'Region';
 
@@ -503,7 +503,7 @@ public function incident_report()
         $this->session->unset_userdata('logged_in');
 
         $this->session->set_flashdata('failed', 'You are logged out.');
-        redirect(base_url().'log_in');
+        redirect(base_url());
 
     }
     public function lock(){
