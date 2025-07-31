@@ -167,7 +167,7 @@
               <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="#">About</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Developers</a></li>
              <li class="nav-item">
               <a class="nav-link" href="<?= base_url('pages/tracking'); ?>">Tracking</a>
             </li>
@@ -214,7 +214,7 @@
       </div>
       <div class="col-md-3 text-center">
         <i class="bi bi-clock-history"></i>
-        <p>Track updates and school responses in real time</p>
+        <p>Track updates and responses in real time</p>
       </div>
       <div class="col-md-3 text-center">
         <i class="bi bi-people-fill"></i>
