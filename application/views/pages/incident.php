@@ -37,6 +37,17 @@
                        <!-- ============================================================== -->
                        <!-- Main Content here -->
                        <!-- ============================================================== -->
+                        <?php 
+                                    $pos = array(
+                                        1 => 'New Case', 
+                                        2 => 'Ongoing Case', 
+                                        3 => 'Resolved', 
+                                        4 => 'Case Endorsed', 
+                                        5 => 'Terminated', 
+                                        6 => 'For Tracing', 
+                                        7 => 'for Monitoring'
+                                    );
+                        ?>
 
 
 
@@ -60,7 +71,7 @@
                                                 <?php foreach($data as $row){?>
                                                 <tr>
                                                     <td><?= $this->Page_model->limit_words($row->incident_details, 20); ?></td>
-                                                    <td></td>
+                                                    <td><span class="badge badge-info"><?= $pos[$row->ir_status]; ?></span></td>
                                                     <td>
                                                         <a href="#" class="btn btn-sm btn-primary">Update</a>
                                                         <a href="#" class="btn btn-sm btn-warning">Change Status</a>
