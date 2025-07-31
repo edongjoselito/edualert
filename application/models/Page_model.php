@@ -108,6 +108,7 @@ public function report_insert()
         'division_id'      => $this->input->post('division_id'),
         'school_id'        => $this->input->post('school'),
         'tracking_no'      => $tracking_no,
+        'report_email'      => $this->input->post('email'),
         'ir_status'        => 1
     );
 
