@@ -382,8 +382,6 @@ public function incident_report()
     }
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     public function  help(){
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -414,10 +412,7 @@ public function incident_report()
             redirect(base_url().'pages/userlist');
         }    
     } 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 
     public function getSchoolsByDivision() {
     $division_id = $this->input->post('division_id');
