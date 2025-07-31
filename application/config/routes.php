@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'pages/view';
 
+$route['homepage'] = 'pages/homepage';
+$route['incident_report'] = 'pages/incident_report';
 $route['log_in'] = 'pages/log_in';
 $route['logout'] = 'pages/logout';
 $route['lock'] = 'pages/lock';

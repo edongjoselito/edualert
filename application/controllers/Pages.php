@@ -43,6 +43,20 @@ class Pages extends CI_Controller{
 
     }
 
+    public function homepage(){
+          
+            $page = "home";
+
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }
+
+            $data['title'] = "Homepage"; 
+
+            $this->load->view('pages/'.$page, $data);
+
+    }
+
 
     public function profilelist(){
         
