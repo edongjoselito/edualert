@@ -21,9 +21,18 @@
     }
 
   .navbar {
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: #fff; /* Light on desktop */
+  transition: background-color 0.3s ease;
 }
+
+.navbar-toggler {
+  border-color: #800000;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(128,0,0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 
 .navbar .nav-link {
   position: relative;
@@ -135,6 +144,10 @@
       .hero-section .right {
         padding: 20px;
       }
+
+       .navbar .nav-link {
+    color: #800000 !important;
+  }
     }
   </style>
 </head>
@@ -154,10 +167,10 @@
               <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="#">About</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Developers</a></li>
              <li class="nav-item">
-  <a class="nav-link" href="<?= base_url('pages/tracking'); ?>">Tracking</a>
-</li>
+              <a class="nav-link" href="<?= base_url('pages/tracking'); ?>">Tracking</a>
+            </li>
               <li class="nav-item"><a class="nav-link btn ms-2" href="log_in">Login</a></li>
         </ul>
       </div>
@@ -201,7 +214,7 @@
       </div>
       <div class="col-md-3 text-center">
         <i class="bi bi-clock-history"></i>
-        <p>Track updates and school responses in real time</p>
+        <p>Track updates and responses in real time</p>
       </div>
       <div class="col-md-3 text-center">
         <i class="bi bi-people-fill"></i>
