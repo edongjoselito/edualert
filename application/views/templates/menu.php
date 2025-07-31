@@ -110,9 +110,14 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/1">New Case</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/2">Ongoing Case</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/3">Resolved</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/4">Case Endorsed</a></li>
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/5">Terminated</a></li> 
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/6">For Tracing</a></li> 
+                        <li><a href="<?= base_url(); ?>Pages/incident_list/7">for Monitoring</a></li>
                         <li><a href="<?= base_url(); ?>Pages/incident_list/0">Total Incident</a></li>
-                        <li><a href="<?= base_url(); ?>Pages/incident_list/1">Incident with Action</a></li>
-                        <li><a href="<?= base_url(); ?>Pages/incident_list/2">Incident No Action</a></li>
                     </ul>
                 </li>
                 <?php if($this->session->position == 0){ ?>

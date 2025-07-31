@@ -58,7 +58,7 @@
                                             <tbody>
                                                 <?php foreach($data as $row){?>
                                                 <tr>
-                                                    <td><?= $this->Page_model->limit_words($row->incident_details, 50); ?></td>
+                                                    <td><?= $this->Page_model->limit_words($row->incident_details, 20); ?></td>
                                                     <td>
                                                         <a href="#" class="btn btn-sm btn-primary">Update</a>
                                                         <a href="#" class="btn btn-sm btn-purple">View</a>

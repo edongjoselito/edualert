@@ -326,7 +326,7 @@ class Pages extends CI_Controller{
 
     public function getSchoolsByDivision() {
     $division_id = $this->input->post('division_id');
-    $schools = $this->Page_model->one_cond('schools', 'p_id', $division_id);
+    $schools = $this->Page_model->one_cond('schools', 'division_id', $division_id);
 
     echo '<option value="">Select School</option>';
     foreach($schools as $school){
