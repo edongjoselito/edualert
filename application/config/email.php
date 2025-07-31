@@ -13,14 +13,20 @@
 //     'wordwrap' => TRUE
 // );
 
+//Gmail
+
+// $config['protocol'] = 'smtp';
+// $config['smtp_host'] = 'ssl://smtp.googlemail.com';
+// $config['smtp_user'] = 'artadybasty@gmail.com';
+// $config['smtp_pass'] = 'lxe08092014';
+// $config['smtp_port'] = 465;
+
+//LXE Hosting
 $config['protocol'] = 'mail';
-$config['smtp_host'] = 'mail.depeddavor.com';
-$config['smtp_user'] = 'no-reply@depeddavor.com';
+$config['smtp_host'] = 'mail.srmsportal.com';
+$config['smtp_user'] = 'no-reply@srmsportal.com';
 $config['smtp_pass'] = 'moth34board';
 $config['smtp_port'] = 465;
- 
-
-
 
 $config['charset'] = 'utf-8';
 $config['mailtype'] = 'html';
