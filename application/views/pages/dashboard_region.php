@@ -103,7 +103,7 @@
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
                                                 <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/7" class="text-white"><span data-plugin="counterup"><?= $monitor->num_rows(); ?></a></span></h2>
-                                                <p class="mb-0">for Monitoring</p>
+                                                <p class="mb-0">For Monitoring</p>
                                             </div>
                                             <i class="ion-md-eye"></i>
                                         </div>
@@ -117,7 +117,7 @@
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
                                                 <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $incident->num_rows(); ?></a></span></h2>
-                                                <p class="mb-0">Total Incident</p>
+                                                <p class="mb-0">Total Incidents</p>
                                             </div>
                                             <i class="mdi mdi-comment-multiple"></i>
                                         </div>
@@ -142,7 +142,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>School Name</th>
+                                                        <th>Division</th>
                                                         <th>New Case</th> 
                                                         <th>Ongoing Case</th>
                                                         <th>Resolved</th>
@@ -154,25 +154,23 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php 
-                                                        $c=1; foreach($region as $row){
-                                                            if($row->description != 'Region'){
-                                                        // $incident = $this->Page_model->one_cond_count('incident_report','school_id',$row->school_id);
-                                                        // $action = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',1);
-                                                        // $noaction = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',0);
-                                                    ?>
-
-                                                    <tr>
-                                                        <th scope="row"><?= $c++; ?></th>
-                                                        <td><?= strtoupper($row->description); ?></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <?php }} ?>
+                                                        $c = 1; 
+                                                        foreach ($region as $row) {
+                                                            if ($row->description != 'Region') {
+                                                                echo "<tr><th scope='row'>{$c}</th><td>" . strtoupper($row->description) . "</td>";
+                                                                for ($i = 1; $i <= 7; $i++) {
+                                                                    $status = $this->Page_model->two_cond_count('incident_report', 'division_id', $row->id, 'ir_status', $i);
+                                                                    if($status->num_rows() != 0){
+                                                                    echo "<td class='text-center'><span class='badge badge-danger'>" . $status->num_rows() . "</td>";
+                                                                    }else{
+                                                                     echo "<td class='text-center'><span class='badge badge-info'>" . $status->num_rows() . "</td>";   
+                                                                    }
+                                                                }
+                                                                echo "</tr>";
+                                                                $c++;
+                                                            }
+                                                        }
+                                                        ?>
                                                     
                                                 </tbody>
                                             </table>
