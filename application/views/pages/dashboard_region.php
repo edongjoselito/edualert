@@ -135,7 +135,7 @@
                         <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-4">List of School</h4>
+                                        <h4 class="header-title mb-4">List of Division</h4>
 
                                         <div class="table-responsive">
                                             <table class="table table-bordered mb-0">
@@ -154,24 +154,25 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php 
-                                                        $c=1; foreach($school as $row){
-                                                        $incident = $this->Page_model->one_cond_count('incident_report','school_id',$row->school_id);
-                                                        $action = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',1);
-                                                        $noaction = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',0);
+                                                        $c=1; foreach($region as $row){
+                                                            if($row->description != 'Region'){
+                                                        // $incident = $this->Page_model->one_cond_count('incident_report','school_id',$row->school_id);
+                                                        // $action = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',1);
+                                                        // $noaction = $this->Page_model->two_cond_count('incident_report','school_id',$row->school_id,'ir_status',0);
                                                     ?>
 
                                                     <tr>
                                                         <th scope="row"><?= $c++; ?></th>
-                                                        <td><?= strtoupper($row->schoolName); ?></td>
-                                                        <td><?= $incident->num_rows(); ?></td>
-                                                        <td><?= $action->num_rows(); ?></td>
-                                                        <td><?= $noaction->num_rows(); ?></td>
+                                                        <td><?= strtoupper($row->description); ?></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
                                                     </tr>
-                                                    <?php } ?>
+                                                    <?php }} ?>
                                                     
                                                 </tbody>
                                             </table>

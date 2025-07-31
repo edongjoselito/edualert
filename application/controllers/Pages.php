@@ -2,6 +2,12 @@
 
 
 class Pages extends CI_Controller{
+    public function __construct()
+        {
+            parent::__construct();
+            $this->load->library('user_agent'); 
+        }
+
 
 
     public function view(){
@@ -32,16 +38,16 @@ class Pages extends CI_Controller{
             $ren = 'Division';
 
            }elseif($this->session->position == 4){
-            $data['incident'] = $this->Page_model->one_cond_count('incident_report','division_id',$this->session->sdo_id);
-            $data['newcase'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',1);
-            $data['ongoing'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',2);
-            $data['resolve'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',3);
-            $data['endorsed'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',4);
-            $data['terminate'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',5);
-            $data['tracing'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',6);
-            $data['monitor'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',7);
+            $data['incident'] = $this->Page_model->no_cond_count('incident_report');
+            $data['newcase'] = $this->Page_model->one_cond_count('incident_report','ir_status',1);
+            $data['ongoing'] = $this->Page_model->one_cond_count('incident_report','ir_status',2);
+            $data['resolve'] = $this->Page_model->one_cond_count('incident_report','ir_status',3);
+            $data['endorsed'] = $this->Page_model->one_cond_count('incident_report','ir_status',4);
+            $data['terminate'] = $this->Page_model->one_cond_count('incident_report','ir_status',5);
+            $data['tracing'] = $this->Page_model->one_cond_count('incident_report','ir_status',6);
+            $data['monitor'] = $this->Page_model->one_cond_count('incident_report','ir_status',7);
 
-            $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
+            $data['region'] = $this->Page_model->one_cond('sdo','region_id',12);
 
             $page = "dashboard_region";
             $ren = 'Region';
