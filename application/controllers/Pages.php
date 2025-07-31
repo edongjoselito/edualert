@@ -8,8 +8,13 @@ class Pages extends CI_Controller{
            if($this->session->position == 2){
             $page = "dashboard_school";
             $data['incident'] = $this->Page_model->one_cond_count('incident_report','school_id',$this->session->school_id);
-            $data['action'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',1);
-            $data['noaction'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',0);
+            $data['newcase'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',1);
+            $data['ongoing'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',2);
+            $data['resolve'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',3);
+            $data['endorsed'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',4);
+            $data['terminate'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',5);
+            $data['tracing'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',6);
+            $data['monitor'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',7);
             $ren = 'School';
            
             }elseif($this->session->position == 3){
@@ -89,12 +94,13 @@ class Pages extends CI_Controller{
         $data['title'] = "Incident List"; 
         if($this->session->position == 2){
 
-        if($this->uri->segment(3) == 1){
-            $data['data'] = $this->Page_model->two_cond('incident_report','school_id',$this->session->school_id,'ir_status',1);  
-        }elseif($this->uri->segment(3) == 2){
-            $data['data'] = $this->Page_model->two_cond('incident_report','school_id',$this->session->school_id,'ir_status',0);
-        }else{
-            $data['data'] = $this->Page_model->one_cond('incident_report','school_id',$this->session->school_id);
+        $status = $this->uri->segment(3);
+        $school_id = $this->session->school_id;
+
+        if ($status >= 1 && $status <= 7) {
+            $data['data'] = $this->Page_model->two_cond('incident_report', 'school_id', $school_id, 'ir_status', $status);
+        } else {
+            $data['data'] = $this->Page_model->one_cond('incident_report', 'school_id', $school_id);
         }
         }elseif($this->session->position == 3){
             if($this->uri->segment(3) == 1){

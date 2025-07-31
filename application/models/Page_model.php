@@ -101,7 +101,7 @@ public function report_insert(){
     'lastName' => $this->input->post('lastName'), 
     'division_id' => $this->input->post('division_id'), 
     'school_id' => $this->input->post('school'), 
-    'ir_status' => 0
+    'ir_status' => 1
     ); 
 
     return $this->db->insert('incident_report', $data);
