@@ -14,19 +14,19 @@
 
     <style>
         :root {
-            --primary-color: #800000;
+            --primary-color: #fff;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #f3dede, #f9e9e9);
+            background: linear-gradient(to bottom, #f3dede, #800000);
             min-height: 100vh;
             padding: 0;
             margin: 0;
         }
 
         .navbar {
-            background-color: #ffffff;
+            background-color: #800000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -105,7 +105,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="System Logo">
+                <img src="<?= base_url(); ?>assets/images/ead.png" width="100%" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
