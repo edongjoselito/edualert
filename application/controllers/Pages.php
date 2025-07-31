@@ -21,6 +21,15 @@ class Pages extends CI_Controller{
             $data['terminate'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',5);
             $data['tracing'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',6);
             $data['monitor'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',7);
+
+            $data['sincident'] = $this->Page_model->one_cond_count('seek_help','school_id',$this->session->school_id);
+            $data['snewcase'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',1);
+            $data['songoing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',2);
+            $data['sresolve'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',3);
+            $data['sendorsed'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',4);
+            $data['sterminate'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',5);
+            $data['stracing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',6);
+            $data['smonitor'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',7);
             $ren = 'School';
            
             }elseif($this->session->position == 3){
