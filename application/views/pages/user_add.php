@@ -126,19 +126,30 @@
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-md-4 col-form-label">School<span class="text-danger">*</span></label>
+                                                <label class="col-md-4 col-form-label">Division<span class="text-danger">*</span></label>
                                                 <div class="col-md-7">
-                                                    <select name="school_id" class="form-control" data-toggle="select2" required>
-                                                        <option value="">Select School</option>
-                                                        <?php 
-                                                        foreach ($school as $row): ?>
-                                                            <option value="<?= $row->school_id; ?>"><?= $row->schoolName; ?></option>
-                                                        <?php endforeach; ?>
+                                                    <select id="division" name="sdo_id" class="form-control" data-toggle="select2" required>
+                                                            <option value="">Select Division</option>
+                                                            <?php foreach($sdo as $row){ ?>
+                                                                <option value="<?= $row->id; ?>"><?= $row->description; ?></option>
+                                                            <?php } ?>
                                                     </select>
                                                 </div>
                                             </div>
 
-                                            <input type="hidden" name="sdo_id" value="61">
+                                            <div class="form-group row">
+                                                <label class="col-md-4 col-form-label">School<span class="text-danger">*</span></label>
+                                                <div class="col-md-7">
+                                                    <select id="school" name="school_id" class="form-control" data-toggle="select2" required>
+                                                    <option value="">Select School</option>
+                                                    <!-- school options will be populated here by JS -->
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            
+
+                                            <!-- <input type="hidden" name="sdo_id" value="61"> -->
 
                                             <div class="form-group row">
                                                 <label class="col-md-4 col-form-label">Profile Picture</label>
@@ -168,6 +179,27 @@
                         </div>
                         <!-- end row -->
 
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                    $(document).ready(function(){
+                                        $('#division').change(function(){
+                                            var divisionID = $(this).val();
+                                            if(divisionID != ''){
+                                                $.ajax({
+                                                    url: "<?= base_url('Pages/getSchoolsByDivision') ?>",
+                                                    type: "POST",
+                                                    data: { division_id: divisionID },
+                                                    success: function(data){
+                                                        $('#school').html(data);
+                                                    }
+                                                });
+                                            } else {
+                                                $('#school').html('<option value="">Select School</option>');
+                                            }
+                                        });
+                                    });
+                                    </script>
+
                         <script>
                         function myFunction() {
                         var x = document.getElementById("myInput");
@@ -184,3 +216,4 @@
                         }
                         }
                         </script>
+

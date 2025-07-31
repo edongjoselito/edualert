@@ -193,7 +193,7 @@ class Pages extends CI_Controller{
 
             $data['title'] = "New User"; 
             $data['school'] = $this->Page_model->no_cond('schools');
-           
+            $data['sdo'] = $this->Page_model->one_cond('sdo','region_id',12);
             
             $this->load->view('templates/header_select');
             $this->load->view('templates/menu');
