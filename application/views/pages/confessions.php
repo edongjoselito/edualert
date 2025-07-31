@@ -77,7 +77,8 @@
                                     <div class="form-row">
 
                                         <div class="form-group col-md-12">
-                                            <textarea class="form-control" rows="10" name="con" id="example-textarea" required></textarea>
+                                            <label for="division">Details of the Report</label>
+                                            <textarea class="form-control" rows="10" name="con" id="example-textarea" required placeholder="Your concern here..."></textarea>
                                         </div>
 
                                       

@@ -18,7 +18,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $incident->num_rows(); ?></span></a></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $newcase->num_rows(); ?></span></a></h2>
                                                 <p class="mb-0">New Case</p>
                                             </div>
                                             <i class="ion-md-open"></i>
@@ -32,7 +32,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/2" class="text-white"><span data-plugin="counterup"><?= $ongoing->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Ongoing Case</p>
                                             </div>
                                             <i class="ion-md-walk"></i>
@@ -46,7 +46,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/3" class="text-white"><span data-plugin="counterup"><?= $resolve->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Resolved</p>
                                             </div>
                                             <i class="ion-md-eye-off"></i>
@@ -60,7 +60,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/4" class="text-white"><span data-plugin="counterup"><?= $endorsed->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Case Endorsed</p>
                                             </div>
                                             <i class="ion-ios-code-working"></i>
@@ -74,7 +74,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/5" class="text-white"><span data-plugin="counterup"><?= $terminate->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Terminated</p>
                                             </div>
                                             <i class="ion-md-power"></i>
@@ -88,7 +88,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/6" class="text-white"><span data-plugin="counterup"><?= $tracing->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">For Tracing</p>
                                             </div>
                                             <i class="mdi mdi-comment-multiple"></i>
@@ -102,7 +102,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/7" class="text-white"><span data-plugin="counterup"><?= $monitor->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">for Monitoring</p>
                                             </div>
                                             <i class="ion-md-eye"></i>
@@ -116,7 +116,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $action->num_rows(); ?></a></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $incident->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Total Incident</p>
                                             </div>
                                             <i class="mdi mdi-comment-multiple"></i>
