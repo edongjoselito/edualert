@@ -142,7 +142,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>School Name</th>
+                                                        <th>Division</th>
                                                         <th>New Case</th> 
                                                         <th>Ongoing Case</th>
                                                         <th>Resolved</th>
