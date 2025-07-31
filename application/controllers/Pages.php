@@ -2,11 +2,7 @@
 
 
 class Pages extends CI_Controller{
-  public function __construct()
-{
-    parent::__construct();
-    $this->load->library('user_agent'); 
-}
+
 
     public function view(){
            if($this->session->position == 2){
@@ -46,7 +42,7 @@ class Pages extends CI_Controller{
             $data['monitor'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',7);
 
             $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
-            
+
             $page = "dashboard_region";
             $ren = 'Region';
 
@@ -350,14 +346,34 @@ public function incident_report()
     } else {
 
         $tracking_no = $this->Page_model->report_insert();
+        $recipient_email = $this->input->post('email');
 
+        // ✅ Email configuration (optional if already set in config/email.php)
+        $this->email->from('noreply@yourdomain.com', 'EduAlert System');
+        $this->email->to($recipient_email);
+        $this->email->subject('Your Incident Report Has Been Received');
+
+        $message = "
+        <h3>Thank you for submitting your incident report.</h3>
+        <p>Your tracking number is:</p>
+        <h2 style='color: red; text-align:center;'>$tracking_no</h2>
+        <p>Please keep this number for future reference.</p>
+        <br><small>This is an automated message. Do not reply.</small>";
+
+        $this->email->message($message);
+
+        if (!$this->email->send()) {
+            log_message('error', 'Email failed to send to ' . $recipient_email);
+        }
+
+        // ✅ Flash success
         $this->session->set_flashdata('success',
             '<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <h5 class="alert-heading mb-1">✅ Incident Report Submitted Successfully!</h5>
                 <p class="mb-0">Please take note of your <strong>Tracking Number</strong> below:</p>
                 <h4 class="mt-2 mb-0 text-center text-danger"><strong>' . $tracking_no . '</strong></h4>
                 <hr class="my-2">
-                <p class="mb-0 text-muted">Use this number to follow up on your report status.</p>
+                <p class="mb-0 text-muted">A confirmation email has been sent to <strong>' . $recipient_email . '</strong>.</p>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>'
         );
@@ -366,6 +382,8 @@ public function incident_report()
     }
 }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public function  help(){
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -396,6 +414,10 @@ public function incident_report()
             redirect(base_url().'pages/userlist');
         }    
     } 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
     public function getSchoolsByDivision() {
     $division_id = $this->input->post('division_id');
@@ -503,7 +525,7 @@ public function incident_report()
         $this->session->unset_userdata('logged_in');
 
         $this->session->set_flashdata('failed', 'You are logged out.');
-        redirect(base_url().'log_in');
+        redirect(base_url());
 
     }
     public function lock(){
