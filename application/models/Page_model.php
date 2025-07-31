@@ -92,20 +92,28 @@ public function user_update_profile(){
     return $this->db->update('users', $data);
 }
 
-public function report_insert(){
+public function report_insert()
+{
+    // Generate unique 6-digit tracking number
+    do {
+        $tracking_no = mt_rand(100000, 999999);
+        $exists = $this->db->get_where('incident_report', ['tracking_no' => $tracking_no])->num_rows();
+    } while ($exists > 0);
 
     $data = array(
-    'incident_details' => $this->input->post('con'), 
-    'firstName' => $this->input->post('firstName'), 
-    'middleName' => $this->input->post('middleName'), 
-    'lastName' => $this->input->post('lastName'), 
-    'division_id' => $this->input->post('division_id'), 
-    'school_id' => $this->input->post('school'), 
-    'ir_status' => 1
-    ); 
+        'incident_details' => $this->input->post('con'),
+        'firstName'        => $this->input->post('firstName'),
+        'middleName'       => $this->input->post('middleName'),
+        'lastName'         => $this->input->post('lastName'),
+        'division_id'      => $this->input->post('division_id'),
+        'school_id'        => $this->input->post('school'),
+        'tracking_no'      => $tracking_no,
+        'ir_status'        => 1
+    );
 
-    return $this->db->insert('incident_report', $data);
-    
+    $this->db->insert('incident_report', $data);
+
+    return $tracking_no;
 }
 
 public function login(){

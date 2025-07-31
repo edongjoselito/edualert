@@ -26,28 +26,12 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <?php if ($this->session->flashdata('success')): ?>
+    <?= $this->session->flashdata('success'); ?>
+<?php endif; ?>
 
-                    <?php if ($this->session->flashdata('success')) : ?>
 
-                        <?= '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>'
-                            . $this->session->flashdata('success') .
-                            '</div>';
-                        ?>
-                    <?php endif; ?>
 
-                    <?php if ($this->session->flashdata('danger')) : ?>
-                        <?= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>'
-                            . $this->session->flashdata('danger') .
-                            '</div>';
-                        ?>
-                    <?php endif;  ?>
                     <!-- end page title -->
 
                     <?= validation_errors(); ?>

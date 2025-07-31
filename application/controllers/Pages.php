@@ -2,7 +2,11 @@
 
 
 class Pages extends CI_Controller{
-    
+  public function __construct()
+{
+    parent::__construct();
+    $this->load->library('user_agent'); 
+}
 
     public function view(){
            if($this->session->position == 2){
@@ -298,37 +302,51 @@ class Pages extends CI_Controller{
         }
     }
 
+public function incident_report()
+{
+    $this->form_validation->set_error_delimiters(
+        '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>',
+        '</div>'
+    );
 
-    public function  incident_report(){
+    $this->form_validation->set_rules('con', 'Incident', 'required');
 
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>','</div>');
-        $this->form_validation->set_rules('con', 'Incident', 'required');
-
-        if($this->form_validation->run() == FALSE){
+    if ($this->form_validation->run() == FALSE) {
 
         $page = "confessions";
 
-            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
-                show_404();
-            }
+        if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
+            show_404();
+        }
 
-            $data['title'] = "Update User"; 
-            $data['school'] = $this->Page_model->no_cond('schools');
-            $data['sdo'] = $this->Page_model->one_cond('sdo','region_id',12);
-           
-            $this->load->view('templates/header_public');
-            $this->load->view('pages/'.$page, $data);
+        $data['title'] = "Update User";
+        $data['school'] = $this->Page_model->no_cond('schools');
+        $data['sdo'] = $this->Page_model->one_cond('sdo', 'region_id', 12);
 
-         }else{
+        $this->load->view('templates/header_public');
+        $this->load->view('pages/' . $page, $data);
 
-            $this->Page_model->report_insert();
-            $this->session->set_flashdata('success', 'Successfully saved.');
-            redirect(base_url().'pages/userlist');
-        }    
-    } 
+    } else {
+
+        $tracking_no = $this->Page_model->report_insert();
+
+        $this->session->set_flashdata('success',
+            '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h5 class="alert-heading mb-1">✅ Incident Report Submitted Successfully!</h5>
+                <p class="mb-0">Please take note of your <strong>Tracking Number</strong> below:</p>
+                <h4 class="mt-2 mb-0 text-center text-danger"><strong>' . $tracking_no . '</strong></h4>
+                <hr class="my-2">
+                <p class="mb-0 text-muted">Use this number to follow up on your report status.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>'
+        );
+
+        redirect($this->agent->referrer());
+    }
+}
 
     public function getSchoolsByDivision() {
     $division_id = $this->input->post('division_id');
