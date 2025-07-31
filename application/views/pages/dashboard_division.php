@@ -351,7 +351,7 @@
                                                         foreach ($sschool as $row) {
                                                                 echo "<tr><th scope='row'>{$c}</th><td>" . strtoupper($row->schoolName) . "</td>";
                                                                 for ($i = 1; $i <= 7; $i++) {
-                                                                    $status = $this->Page_model->two_cond_count('incident_report', 'school_id', $row->school_id, 'ir_status', $i);
+                                                                    $status = $this->Page_model->two_cond_count('seek_help', 'school_id', $row->school_id, 'sh_status', $i);
                                                                     
                                                                     if($status->num_rows() != 0){
                                                                     echo "<td class='text-center'><span class='badge badge-danger'>" . $status->num_rows() . "</td>";
