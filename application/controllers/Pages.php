@@ -10,17 +10,19 @@ class Pages extends CI_Controller{
             $data['incident'] = $this->Page_model->one_cond_count('incident_report','school_id',$this->session->school_id);
             $data['action'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',1);
             $data['noaction'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',0);
+            $ren = 'School';
            
             }elseif($this->session->position == 3){
             $page = "dashboard_division";
             $data['incident'] = $this->Page_model->one_cond_count('incident_report','division_id',$this->session->sdo_id);
             $data['action'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',1);
             $data['noaction'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',0);
-
+            $data['school'] = $this->Page_model->one_cond('schools','division_id',$this->session->sdo_id);
+            $ren = 'Division';
 
            }elseif($this->session->position == 4){
             $page = "dashboard_region";
-
+            $ren = 'Region';
 
            }else{
             $page = "dashboard";
@@ -31,7 +33,7 @@ class Pages extends CI_Controller{
                 show_404();
             }
 
-            $data['title'] = "Dashboard"; 
+            $data['title'] = $ren ." Dashboard"; 
 
             $this->load->view('templates/header');
             $this->load->view('templates/menu');

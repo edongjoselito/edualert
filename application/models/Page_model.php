@@ -243,6 +243,18 @@ function limit_words($text, $limit) {
 }
 
 
+public function two_join_one_cond($t1, $t2, $select, $joinby, $col, $val, $ob, $obval)
+    {
+        $this->db->select($select);
+        $this->db->from($t1 . ' as a');
+        $this->db->join($t2 . ' as b', $joinby, 'left');
+        $this->db->where($col, $val);
+        $this->db->order_by($ob, $obval);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
 
 
 

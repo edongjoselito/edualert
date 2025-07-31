@@ -18,7 +18,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><span data-plugin="counterup"><?= $incident->num_rows(); ?></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $incident->num_rows(); ?></span></a></h2>
                                                 <p class="mb-0">Total Incident Report</p>
                                             </div>
                                             <i class="ion-ios-pricetag"></i>
@@ -32,7 +32,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/1" class="text-white"><span data-plugin="counterup"><?= $noaction->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Total Incident with action</p>
                                             </div>
                                             <i class="ion-ios-pricetag"></i>
@@ -46,7 +46,7 @@
                                     <div class="card-body widget-style-2">
                                         <div class="text-white media">
                                             <div class="media-body align-self-center">
-                                                <h2 class="my-0 text-white"><span data-plugin="counterup"><?= $action->num_rows(); ?></span></h2>
+                                                <h2 class="my-0 text-white"><a href="<?= base_url(); ?>Pages/incident_list/0" class="text-white"><span data-plugin="counterup"><?= $action->num_rows(); ?></a></span></h2>
                                                 <p class="mb-0">Total Incident no action</p>
                                             </div>
                                             <i class="mdi mdi-comment-multiple"></i>
