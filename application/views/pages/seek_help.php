@@ -126,24 +126,31 @@
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group">
                                                 <label for="division">First Name(Optional)</label>
                                                 <input type="text" class="form-control" value="" name="firstName">
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group">
                                                 <label for="school">Middle Name(Optional)</label>
                                                 <input type="text" class="form-control" value="" name="middleName">
                                                 
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group">
                                                 <label for="school">Last Name(Optional)</label>
                                                 <input type="text" class="form-control" value="" name="lastName">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label for="school">E-mail (Optional)</label>
+                                                <input type="text" class="form-control" value="" name="email">
                                                 
                                             </div>
                                         </div>
