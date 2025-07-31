@@ -51,6 +51,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>incident_details</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -59,8 +60,10 @@
                                                 <?php foreach($data as $row){?>
                                                 <tr>
                                                     <td><?= $this->Page_model->limit_words($row->incident_details, 20); ?></td>
+                                                    <td></td>
                                                     <td>
                                                         <a href="#" class="btn btn-sm btn-primary">Update</a>
+                                                        <a href="#" class="btn btn-sm btn-warning">Change Status</a>
                                                         <a href="#" class="btn btn-sm btn-purple">View</a>
                                                         <a href="#" class="btn btn-sm btn-success">Remarks</a>
                                                     </td>
