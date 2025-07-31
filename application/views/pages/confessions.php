@@ -78,7 +78,7 @@
 
                                         <div class="form-group col-md-12">
                                             <label for="division">Details of the Report</label>
-                                            <textarea class="form-control" rows="10" name="con" id="example-textarea" required placeholder="Your concern here..."></textarea>
+                                            <textarea class="form-control" rows="10" name="con" id="example-textarea" required ></textarea>
                                         </div>
 
                                       
@@ -112,28 +112,77 @@
                                     <div class="form-row">
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="division">First Name(Optional)</label>
+                                               <label for="first-name">
+  First Name 
+  <span class="badge" title="Adding your first name helps personalize communication and verify your report.">
+    Optional
+  </span>
+</label>
                                                 <input type="text" class="form-control" value="" name="firstName">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="school">Middle Name(Optional)</label>
+                                                <label for="school">Middle Name</label>
                                                 <input type="text" class="form-control" value="" name="middleName">
                                                 
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="school">Last Name(Optional)</label>
+                                            <label for="last-name">
+  Last Name 
+  <span class="badge" title="Including your last name can improve report tracking and verification.">
+    Optional
+  </span>
+</label>
+
                                                 <input type="text" class="form-control" value="" name="lastName">
                                                 
                                             </div>
                                         </div>
                                          <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="school">E-mail (Optional)</label>
+                                               <label for="school">
+  E-mail 
+  <span class="badge" title="Providing your email helps you receive timely updates about your incident report.">
+    Optional
+  </span>
+</label>
+
+<style>
+  label {
+    display: block;
+    margin-top: 16px;
+    font-weight: bold;
+  }
+
+  .badge {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 2px 6px;
+    margin-left: 6px;
+    font-size: 0.75em;
+    border-radius: 4px;
+    cursor: help;
+    transition: background-color 0.3s ease;
+  }
+
+  .badge:hover {
+    background-color: #d0d0d0;
+  }
+
+  input {
+    display: block;
+    margin-top: 4px;
+    padding: 6px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+</style>
                                                 <input type="text" class="form-control" value="" name="email">
                                                 
                                             </div>
@@ -145,8 +194,6 @@
                                         <div class="g-recaptcha" data-sitekey="<?= trim($mis_settings->site_key); ?>"></div>
                                     </div> -->
 
-
-                                    
 
                                     <br />
                                     <button type="submit" value="submit" class="btn" style="background:#800000">Submit</button>

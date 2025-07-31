@@ -94,7 +94,7 @@
 
                                         <div class="form-group col-md-12">
                                             <label for="division">Seek Help</label>
-                                            <textarea class="form-control" rows="10" name="con" id="example-textarea" required placeholder="Your concern here..."></textarea>
+                                            <textarea class="form-control" rows="10" name="con" id="example-textarea" required placeholder="Details Here"></textarea>
                                         </div>
 
                                       
