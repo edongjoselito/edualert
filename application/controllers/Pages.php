@@ -116,10 +116,11 @@ class Pages extends CI_Controller{
         }
 
         $data['title'] = "Incident List"; 
-        if($this->session->position == 2){
 
         $status = $this->uri->segment(3);
         $school_id = $this->session->school_id;
+
+        if($this->session->position == 2){
 
         if ($status >= 1 && $status <= 7) {
             $data['data'] = $this->Page_model->two_cond('incident_report', 'school_id', $school_id, 'ir_status', $status);
@@ -127,14 +128,17 @@ class Pages extends CI_Controller{
             $data['data'] = $this->Page_model->one_cond('incident_report', 'school_id', $school_id);
         }
         }elseif($this->session->position == 3){
-            if($this->uri->segment(3) == 1){
-            $data['data'] = $this->Page_model->two_cond('incident_report','division_id',$this->session->sdo_id,'ir_status',1);  
-            }elseif($this->uri->segment(3) == 2){
-                $data['data'] = $this->Page_model->two_cond('incident_report','division_id',$this->session->sdo_id,'ir_status',0);
-            }else{
-                $data['data'] = $this->Page_model->one_cond('incident_report','division_id',$this->session->sdo_id);
+            if ($status >= 1 && $status <= 7) {
+                $data['data'] = $this->Page_model->two_cond('incident_report', 'division_id', $this->session->sdo_id, 'ir_status', $status);
+            } else {
+                $data['data'] = $this->Page_model->one_cond('incident_report', 'division_id', $this->session->sdo_id);
             }
         }else{
+            if ($status >= 1 && $status <= 7) {
+                $data['data'] = $this->Page_model->one_cond('incident_report', 'ir_status', $status);
+            } else {
+                $data['data'] = $this->Page_model->no_cond('incident_report');
+            }
 
         }
 
