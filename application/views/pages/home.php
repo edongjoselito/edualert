@@ -35,11 +35,17 @@
 }
 
 
-    .hero-section {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 60px 0;
-    }
+  .hero-section {
+  background: url("<?= base_url(); ?>assets/images/bgwel.jpg") no-repeat center left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  height: 600px; /* ✅ Fixed height */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
     .hero-section .left {
       padding: 0 40px;
@@ -86,6 +92,11 @@
       margin-top: 10px;
     }
 
+    .highlight-text {
+    color: #ffc107; /* Example: Bootstrap warning yellow */
+    font-weight: bold;
+    }
+
     @media (max-width: 768px) {
       .hero-section {
         text-align: center;
@@ -122,50 +133,51 @@
 
   <!-- Hero Section -->
   <div class="hero-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 left">
-          <h1>Welcome to EduAlert</h1>
-          <p>EduAlert is a School Incident Reporting System designed to empower students, faculty, and staff in reporting and tracking school-related incidents securely—identified or anonymously.</p>
-          <div class="mt-4 d-flex gap-3 flex-wrap">
-            <a href="<?= base_url('incident_report'); ?>" class="btn btn-light">
-              <i class="bi bi-flag-fill me-2"></i>Submit Incident Report
-            </a>
-            <a href="<?= base_url('help'); ?>" class="btn btn-outline-light">
-              <i class="bi bi-life-preserver me-2"></i>Seek Help
-            </a>
-          </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1>Welcome to Edu<span class="highlight-text">Alert</span></h1>
+        <p>EduAlert is a School Incident Reporting System designed to empower students, faculty, and staff in reporting and tracking school-related incidents securely—identified or anonymously.</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="<?= base_url('incident_report'); ?>" class="btn btn-light">
+            <i class="bi bi-flag-fill me-2"></i>Submit Incident Report
+          </a>
+          <a href="<?= base_url('help'); ?>" class="btn btn-outline-light">
+            <i class="bi bi-life-preserver me-2"></i>Seek Help
+          </a>
         </div>
-        <div class="col-lg-6 right">
-          <img src="<?= base_url(); ?>assets/images/wel.png" alt="Students working" class="img-fluid rounded">
-        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <!-- <img src="<?= base_url(); ?>assets/images/wel.png" alt="Students working" class="img-fluid rounded"> -->
       </div>
     </div>
   </div>
+</div>
 
   <!-- Features -->
   <div class="feature-icons">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-3">
-          <i class="bi bi-person-check"></i>
-          <p>Empowers students and staff</p>
-        </div>
-        <div class="col-md-3">
-          <i class="bi bi-shield-lock"></i>
-          <p>Anonymous and secure reports</p>
-        </div>
-        <div class="col-md-3">
-          <i class="bi bi-graph-up"></i>
-          <p>Real-time response tracking</p>
-        </div>
-        <div class="col-md-3">
-          <i class="bi bi-headset"></i>
-          <p>Dedicated support team</p>
-        </div>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <p>Report incidents easily and accurately</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="bi bi-shield-lock-fill"></i>
+        <p>Submit reports anonymously and securely</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="bi bi-clock-history"></i>
+        <p>Track updates and school responses in real time</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <i class="bi bi-people-fill"></i>
+        <p>Engage students, teachers, and staff in safe learning</p>
       </div>
     </div>
   </div>
+</div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
