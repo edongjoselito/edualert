@@ -30,7 +30,7 @@ class Pages extends CI_Controller{
             $data['sterminate'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',5);
             $data['stracing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',6);
             $data['smonitor'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',7);
-            $ren = 'School';
+            $ren = 'School Focal';
            
             }elseif($this->session->position == 3){
             $page = "dashboard_division";
@@ -54,7 +54,7 @@ class Pages extends CI_Controller{
 
             $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
             $data['sschool'] = $this->Page_model->two_join_no_cond_gb('seek_help', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
-            $ren = 'Division';
+            $ren = 'Division Focal';
 
            }elseif($this->session->position == 4){
             $data['incident'] = $this->Page_model->no_cond_count('incident_report');
