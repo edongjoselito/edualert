@@ -57,7 +57,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">Username / Email:</label>
-                                        <input class="form-control" type="text" id="Username" name="username"  autocomplete="off" >
+                                        <input class="form-control" type="text" id="email" name="email"  autocomplete="off" >
                                     </div>
 
                                     <div class="form-group mb-3">

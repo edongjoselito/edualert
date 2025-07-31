@@ -26,6 +26,7 @@ class Pages extends CI_Controller{
 
            }else{
             $page = "dashboard";
+             $ren = 'Admin';
            }
 
 
@@ -312,7 +313,6 @@ class Pages extends CI_Controller{
             $data['school'] = $this->Page_model->no_cond('schools');
             $data['sdo'] = $this->Page_model->one_cond('sdo','region_id',12);
            
-            
             $this->load->view('templates/header_public');
             $this->load->view('pages/'.$page, $data);
 
