@@ -80,7 +80,7 @@
   background-repeat: no-repeat;
   background-position: center;
   color: #fff;
-  height: 800px; /* ✅ Fixed height */
+  height: 600px; /* ✅ Fixed height */
   position: relative;
   display: flex;
   align-items: center;
