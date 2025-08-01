@@ -164,13 +164,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= base_url(); ?>">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="#">About</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Developers</a></li>
-             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url('pages/tracking'); ?>">Tracking</a>
-            </li>
+              <li class="nav-item"><a class="nav-link" href="<?= base_url('pages/authors'); ?>">Authors</a></li>
+             <li class="nav-item"><a class="nav-link" href="<?= base_url('pages/tracking'); ?>">Tracking</a></li>
               <li class="nav-item"><a class="nav-link btn ms-2" href="log_in">Login</a></li>
         </ul>
       </div>
