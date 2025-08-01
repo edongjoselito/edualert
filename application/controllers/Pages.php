@@ -102,6 +102,11 @@ class Pages extends CI_Controller{
             $this->load->view('pages/tracking');  // ✅ include folder name
      }
 
+    public function authors()
+        {
+            $this->load->view('pages/authors');  // ✅ include folder name
+     }
+
     public function homepage(){
           
             $page = "home";
