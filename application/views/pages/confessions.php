@@ -48,8 +48,7 @@
                                 <div class="card-body">
                                     <blockquote class="card-bodyquote">
                                         <p class="text-justify">The Department of Education (DepEd) strictly abides by the provisions of Republic Act No. 10173, also known as the Data Privacy Act of 2012. By selecting the checkbox below and clicking "Submit," you give your consent to allow DepEd to collect, process, and store your personal information for lawful and legitimate purposes in relation to the submission of this student or anonymous incident report. Your information will not be disclosed to any unauthorized third party but may be shared with concerned divisions, units, or schools within the Department, and with other authorized government agencies such as the Philippine National Police (PNP) and the Department of Social Welfare and Development (DSWD), when necessary for proper investigation, intervention, or resolution of the reported incident. You confirm that you are fully informed of the purpose of this initiative and voluntarily consent to the terms stated above.</p>
-                                        <footer class="text-xs"> <input type="checkbox" required name="confirm" value="1"> &nbsp;<cite class="text-danger">confirm that I have read and understood the above information and agree to its every detail.</cite>
-                                        </footer>
+                                        <footer class="text-xs"> <input type="checkbox" required name="confirm" value="1"> &nbsp;<cite class="text-danger">confirm that I have read and understood the above information and agree to its every detail.</cite></footer>
                                     </blockquote>
                                 </div>
                             </div>
@@ -132,11 +131,11 @@
                                         <div class="col-lg-3">
                                             <div class="form-group">
                                             <label for="last-name">
-  Last Name 
-  <span class="badge" title="Including your last name can improve report tracking and verification.">
-    Optional
-  </span>
-</label>
+                                            Last Name 
+                                            <span class="badge" title="Including your last name can improve report tracking and verification.">
+                                                Optional
+                                            </span>
+                                            </label>
 
                                                 <input type="text" class="form-control" value="" name="lastName">
                                                 
@@ -145,11 +144,11 @@
                                          <div class="col-lg-3">
                                             <div class="form-group">
                                                <label for="school">
-  E-mail 
-  <span class="badge" title="Providing your email helps you receive timely updates about your incident report.">
-    Optional
-  </span>
-</label>
+                                                E-mail 
+                                                <span class="badge" title="Providing your email helps you receive timely updates about your incident report.">
+                                                    Optional
+                                                </span>
+                                                </label>
 
 <style>
   label {
@@ -174,14 +173,7 @@
     background-color: #d0d0d0;
   }
 
-  input {
-    display: block;
-    margin-top: 4px;
-    padding: 6px;
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
-  }
+  
 </style>
                                                 <input type="text" class="form-control" value="" name="email">
                                                 
