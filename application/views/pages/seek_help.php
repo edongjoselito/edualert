@@ -154,30 +154,43 @@
                                     <div class="form-row">
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="division">First Name(Optional)</label>
+                                               <label for="first-name">
+                                                First Name 
+                                                <span class="badge" title="Adding your first name helps personalize communication and verify your report.">
+                                                    Optional
+                                                </span>
+                                                </label>
                                                 <input type="text" class="form-control" value="" name="firstName">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="school">Middle Name(Optional)</label>
+                                                <label for="school">Middle Name</label>
                                                 <input type="text" class="form-control" value="" name="middleName">
                                                 
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="school">Last Name(Optional)</label>
+                                            <label for="last-name">
+                                            Last Name 
+                                            <span class="badge" title="Including your last name can improve report tracking and verification.">
+                                                Optional
+                                            </span>
+                                            </label>
                                                 <input type="text" class="form-control" value="" name="lastName">
-                                                
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="school">E-mail (Optional)</label>
+                                               <label for="school">
+                                                E-mail 
+                                                <span class="badge" title="Providing your email helps you receive timely updates about your incident report.">
+                                                    Optional
+                                                </span>
+                                                </label>
                                                 <input type="text" class="form-control" value="" name="email">
-                                                
                                             </div>
                                         </div>
                                     </div>
