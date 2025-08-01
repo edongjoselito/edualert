@@ -109,10 +109,10 @@
       position: relative;
     }
 
-    .profile-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 14px 40px rgba(128, 0, 0, 0.3);
-    }
+ .profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 50px rgba(218, 165, 32, 0.3);
+}
 
     .profile-card img {
       width: 130px;
@@ -191,20 +191,50 @@
     <div class="row g-4 justify-content-center">
 
      <!-- Highlighted Main Author -->
-    <h4 class="text-center mt-5" style="color:#800000;"><i class="bi bi-star-fill me-2"></i>Main Author</h4>
-    <div class="row justify-content-center mt-3">
-      <div class="col-md-6" data-aos="fade-up">
-        <div class="profile-card shadow-lg" style="border: 3px solid gold; background: linear-gradient(to right, #fffbe6, #fffce0);">
-          <img src="<?= base_url(); ?>assets/images/developers/steph.jpeg" alt="Main Author" style="width: 150px; height: 150px; border: 4px solid #b8860b;">
-          <h5 style="font-size: 1.5rem; color: #b8860b;">Stephen Mark T. Castres</h5>
-          <span style="font-weight: 500; color: #6a4a00;">Main Author / Nurse II, ESSD</span>
-          <div class="social-icons mt-3">
+      <h4 class="text-center mt-5" style="color:#800000;">
+        <i class="bi bi-star-fill me-2"></i>Main Author
+      </h4>
+      <div class="row justify-content-center mt-3 mb-4">
+        <div class="col-md-5 col-lg-4" data-aos="fade-up">
+          <div class="profile-card shadow-lg position-relative"
+            style="border: 3px solid gold; background: linear-gradient(to right, #fffbe6, #fffce0);">
+
+            <img src="<?= base_url(); ?>assets/images/developers/steph.jpeg" alt="Main Author"
+              style="width: 130px; height: 130px; border: 4px solid #b8860b;">
+            <h5 style="font-size: 1.4rem; color: #b8860b; margin-top: 15px;">Stephen Mark T. Castres</h5>
+            <span style="font-weight: 500; color: #6a4a00;">Nurse II, ESSD</span>
+            <div class="social-icons mt-3">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Author 4 -->
+      <div class="col-md-4 col-sm-6" data-aos="fade-up">
+        <div class="profile-card">
+          <img src="<?= base_url(); ?>assets/images/developers/fran.jpg" alt="Author 4">
+          <h5>Francis Vic Alicando</h5>
+          <span>Developer</span>
+          <div class="social-icons">
             <a href="#"><i class="bi bi-instagram"></i></a>
             <a href="#"><i class="bi bi-envelope"></i></a>
           </div>
         </div>
       </div>
-    </div>
+
+      <!-- Author 5 -->
+      <div class="col-md-4 col-sm-6" data-aos="fade-up">
+        <div class="profile-card">
+          <img src="<?= base_url(); ?>assets/images/developers/louj.jpeg" alt="Author 5">
+          <h5>Lou Jynne Masanguid</h5>
+          <span>Developer</span>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+      </div>
 
 
       <!-- Author 1 -->
@@ -246,31 +276,7 @@
         </div>
       </div>
 
-      <!-- Author 4 -->
-      <div class="col-md-4 col-sm-6" data-aos="fade-up">
-        <div class="profile-card">
-          <img src="<?= base_url(); ?>assets/images/developers/fran.jpg" alt="Author 4">
-          <h5>Francis Vic Alicando</h5>
-          <span>Developer</span>
-          <div class="social-icons">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-envelope"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Author 5 -->
-      <div class="col-md-4 col-sm-6" data-aos="fade-up">
-        <div class="profile-card">
-          <img src="<?= base_url(); ?>assets/images/developers/louj.jpeg" alt="Author 5">
-          <h5>Lou Jynne Masanguid</h5>
-          <span>Developer</span>
-          <div class="social-icons">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-envelope"></i></a>
-          </div>
-        </div>
-      </div>
+    
 
     </div>
 
