@@ -97,7 +97,7 @@ class Pages extends CI_Controller{
 
    public function tracking()
         {
-            $this->load->view('pages/tracking');  // ✅ include folder name
+            $this->load->view('pages/tracking');  
      }
 
     public function homepage(){
