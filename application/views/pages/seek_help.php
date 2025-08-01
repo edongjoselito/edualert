@@ -1,4 +1,30 @@
+<style>
+  label {
+    display: block;
+    margin-top: 16px;
+    font-weight: bold;
+  }
 
+  .badge {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 2px 6px;
+    margin-left: 6px;
+    font-size: 0.75em;
+    border-radius: 4px;
+    cursor: help;
+    transition: background-color 0.3s ease;
+    background-color:red;
+    color:#fff;
+  }
+
+  .badge:hover {
+    background-color: #d0d0d0;
+  }
+
+</style>
+        
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
