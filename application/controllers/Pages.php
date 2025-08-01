@@ -13,44 +13,42 @@ class Pages extends CI_Controller{
     public function view(){
            if($this->session->position == 2){
             $page = "dashboard_school";
+
+            $statuses = [1 => 'snewcase',2 => 'songoing',3 => 'sresolve',4 => 'sendorsed',5 => 'sterminate',6 => 'stracing',7 => 'smonitor'];
+            $stat = [1 => 'newcase',2 => 'ongoing',3 => 'resolve',4 => 'endorsed',5 => 'terminate',6 => 'tracing',7 => 'monitor'];
+
             $data['incident'] = $this->Page_model->one_cond_count('incident_report','school_id',$this->session->school_id);
-            $data['newcase'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',1);
-            $data['ongoing'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',2);
-            $data['resolve'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',3);
-            $data['endorsed'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',4);
-            $data['terminate'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',5);
-            $data['tracing'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',6);
-            $data['monitor'] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',7);
+
+            foreach ($stat as $status => $key) {
+                $data[$key] = $this->Page_model->two_cond_count('incident_report','school_id',$this->session->school_id,'ir_status',$status);
+            }
 
             $data['sincident'] = $this->Page_model->one_cond_count('seek_help','school_id',$this->session->school_id);
-            $data['snewcase'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',1);
-            $data['songoing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',2);
-            $data['sresolve'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',3);
-            $data['sendorsed'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',4);
-            $data['sterminate'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',5);
-            $data['stracing'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',6);
-            $data['smonitor'] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',7);
+
+            foreach ($statuses as $status => $key) {
+                $data[$key] = $this->Page_model->two_cond_count('seek_help','school_id',$this->session->school_id,'sh_status',$status);
+            }
+
+           
             $ren = 'School Focal';
            
             }elseif($this->session->position == 3){
             $page = "dashboard_division";
+
+            $statuses = [1 => 'snewcase',2 => 'songoing',3 => 'sresolve',4 => 'sendorsed',5 => 'sterminate',6 => 'stracing',7 => 'smonitor'];
+            $stat = [1 => 'newcase',2 => 'ongoing',3 => 'resolve',4 => 'endorsed',5 => 'terminate',6 => 'tracing',7 => 'monitor'];
+
             $data['incident'] = $this->Page_model->one_cond_count('incident_report','division_id',$this->session->sdo_id);
-            $data['newcase'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',1);
-            $data['ongoing'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',2);
-            $data['resolve'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',3);
-            $data['endorsed'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',4);
-            $data['terminate'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',5);
-            $data['tracing'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',6);
-            $data['monitor'] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',7);
+
+            foreach ($stat as $status => $key) {
+                $data[$key] = $this->Page_model->two_cond_count('incident_report','division_id',$this->session->sdo_id,'ir_status',$status);
+            }
 
             $data['sincident'] = $this->Page_model->one_cond_count('seek_help','division_id',$this->session->sdo_id);
-            $data['snewcase'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',1);
-            $data['songoing'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',2);
-            $data['sresolve'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',3);
-            $data['sendorsed'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',4);
-            $data['sterminate'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',5);
-            $data['stracing'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',6);
-            $data['smonitor'] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',7);
+
+            foreach ($statuses as $status => $key) {
+                $data[$key] = $this->Page_model->two_cond_count('seek_help','division_id',$this->session->sdo_id,'sh_status',$status);
+            }
 
             $data['school'] = $this->Page_model->two_join_no_cond_gb('incident_report', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
             $data['sschool'] = $this->Page_model->two_join_no_cond_gb('seek_help', 'schools', 'a.school_id,b.school_id,b.schoolName','a.school_id = b.school_id','b.schoolName','ASC','b.schoolName');
