@@ -19,7 +19,6 @@ public function profile_insert(){
     ); 
 
     return $this->db->insert('profile', $data);
-    
 }
 
 
@@ -316,6 +315,44 @@ public function two_join_no_cond_gb($t1, $t2, $select, $joinby, $ob, $obval,$gb)
         $this->db->order_by($ob, $obval);
         $query = $this->db->get();
         return $query->result();
+}
+
+public function process_update(){
+
+    $id = $this->input->post('id'); 
+
+    $data = array(
+        'date_incident' => $this->input->post('date_incident'), 
+        'incident_location' => $this->input->post('incident_location'), 
+        'victim' => $this->input->post('victim'), 
+        'perpetrator' => $this->input->post('perpetrator'), 
+        'premise_category' => $this->input->post('premise_category'), 
+        'validation_stat' => $this->input->post('validation_stat'), 
+        'issues_concerns' => $this->input->post('issues_concerns'), 
+        'issues_concerns_sub' => $this->input->post('issues_concerns_sub'), 
+        'action_taken' => $this->input->post('action_taken'), 
+        'refer_type' => $this->input->post('refer_type'), 
+        'refer_cat' => $this->input->post('refer_cat'), 
+        'created_at' => $this->input->post('created_at'), 
+        'updated_at' => $this->input->post('updated_at'), 
+        'firstName' => $this->input->post('firstName'), 
+        'middleName' => $this->input->post('middleName'), 
+        'lastName' => $this->input->post('lastName'), 
+        'report_email' => $this->input->post('report_email'), 
+        'report_date' => $this->input->post('report_date'), 
+        'age' => $this->input->post('age'), 
+        'gl' => $this->input->post('gl'),
+        'itime' => $this->input->post('itime'),
+        'contact' => $this->input->post('contact'), 
+        'contact_parent' => $this->input->post('contact_parent'), 
+        'mother' => $this->input->post('mother'), 
+        'father' => $this->input->post('father'), 
+        'emergency_contact' => $this->input->post('emergency_contact'), 
+        'emergency_relation' => $this->input->post('emergency_relation')
+        );
+
+    $this->db->where('ir_id', $id);
+    return $this->db->update('incident_report', $data);
 }
 
 

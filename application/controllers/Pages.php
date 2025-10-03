@@ -688,6 +688,41 @@ public function incident_report()
 
     }
 
+    public function incident_process(){
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>','</div>');
+        $this->form_validation->set_rules('firstName', 'First Name', 'required');
+
+        if($this->form_validation->run() == FALSE){
+
+        $page = "incident_process";
+
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }
+
+            $data['title'] = "Incident Details"; 
+            $data['data'] = $this->Page_model->one_cond_row('incident_report','ir_id',$this->uri->segment(3));
+            //$data['school'] = $this->Page_model->no_cond('schools');
+           
+            
+            $this->load->view('templates/header');
+            $this->load->view('templates/menu');
+            $this->load->view('pages/'.$page, $data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/footer_basic');
+
+         }else{
+
+            $this->Page_model->process_update();
+            $this->session->set_flashdata('success', 'Successfully saved.');
+            redirect(base_url().'pages/incident_process/'.$this->input->post('id').'/'.$this->input->post('type'));
+        }    
+    } 
+
    
     
 

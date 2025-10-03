@@ -138,11 +138,11 @@
                                         <div class="col-lg-3">
                                             <div class="form-group">
                                                <label for="first-name">
-  First Name 
-  <span class="badge" title="Adding your first name helps personalize communication and verify your report.">
-    Optional
-  </span>
-</label>
+                                                    First Name 
+                                                    <span class="badge" title="Adding your first name helps personalize communication and verify your report.">
+                                                        Optional
+                                                    </span>
+                                                    </label>
                                                 <input type="text" class="form-control" value="" name="firstName">
                                             </div>
                                         </div>

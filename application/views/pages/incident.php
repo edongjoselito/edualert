@@ -73,10 +73,11 @@
                                                     <td><?= $this->Page_model->limit_words($row->incident_details, 10); ?></td>
                                                     <td><span class="badge badge-info"><?= $pos[$row->ir_status]; ?></span></td>
                                                     <td>
-                                                        <a href="<?= base_url(); ?>" class="btn btn-sm btn-primary">Update</a>
+                                                        <a href="<?= base_url(); ?>Pages/incident_process/<?= $row->ir_id; ?>/<?= $this->uri->segment(3); ?>" class="btn btn-sm btn-primary">Update</a>
                                                         <a href="#" class="btn btn-sm btn-warning">Change Status</a>
                                                         <a href="#" class="btn btn-sm btn-purple">View</a>
                                                         <a href="#" class="btn btn-sm btn-success">Remarks</a>
+                                                        <a href="#" class="btn btn-sm btn-success">tag</a>
                                                     </td>
                                                 </tr>
                                                 <?php } ?>
