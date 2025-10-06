@@ -86,21 +86,21 @@
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                         <label for="first-name">First Name </label>
-                                                                            <input type="text" class="form-control" value="<?= $data->firstName; ?>" name="firstName">
+                                                                            <input type="text" class="form-control" readonly value="<?= $data->firstName; ?>" name="firstName">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label for="school">Middle Name</label>
-                                                                            <input type="text" class="form-control" value="<?= $data->middleName; ?>" name="middleName">
+                                                                            <input type="text" class="form-control" readonly value="<?= $data->middleName; ?>" name="middleName">
                                                                             
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                         <label for="last-name">Last Name</label>
-                                                                            <input type="text" class="form-control" value="<?= $data->lastName; ?>" name="lastName">
+                                                                            <input type="text" class="form-control" readonly value="<?= $data->lastName; ?>" name="lastName">
                                                                         </div>
                                                                     </div>
                                                                     
@@ -110,21 +110,21 @@
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                         <label for="school">E-mail </label>
-                                                                            <input type="text" class="form-control" value="<?= $data->report_email; ?>" name="email">
+                                                                            <input type="text" class="form-control" readonly value="<?= $data->report_email; ?>" name="report_email">
                                                                             
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                         <label for="first-name">Position/Role</label>
-                                                                            <input type="text" class="form-control" value="<?= $data->firstName; ?>" name="firstName">
+                                                                            <input type="text" class="form-control" value="<?= $data->reporter_role; ?>" name="reporter_role">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label for="school">Contact Number</label>
-                                                                            <input type="text" class="form-control" value="<?= $data->contact; ?>" name="Contact Number">
+                                                                            <input type="text" class="form-control" value="<?= $data->contact; ?>" name="contact">
                                                                             
                                                                         </div>
                                                                     </div>
@@ -154,21 +154,21 @@
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                         <label for="first-name">First Name </label>
-                                                                            <input type="text" class="form-control" value="<?= $data->vfirstname; ?>" name="firstName">
+                                                                            <input type="text" class="form-control" value="<?= $data->vfirstname; ?>" name="vfirstname">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label for="school">Middle Name</label>
-                                                                            <input type="text" class="form-control" value="<?= $data->vmiddlename; ?>" name="middleName">
+                                                                            <input type="text" class="form-control" value="<?= $data->vmiddlename; ?>" name="vmiddlename">
                                                                             
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                         <label for="last-name">Last Name</label>
-                                                                            <input type="text" class="form-control" value="<?= $data->vlastname; ?>" name="lastName">
+                                                                            <input type="text" class="form-control" value="<?= $data->vlastname; ?>" name="vlastname">
                                                                         </div>
                                                                     </div>
                                                                     
@@ -186,8 +186,8 @@
                                                                         <label for="first-name">Sex</label>
                                                                             <select id="sex" name="sex" class="form-control" required>
                                                                             <option value=""></option>
-                                                                            <option  <?php if($data->refer_type == 0){echo " selected ";} ?> value="0">Male</option>
-                                                                            <option  <?php if($data->refer_type == 1){echo " selected ";} ?> value="1">Female</option>
+                                                                            <option  <?php if($data->sex == 0){echo " selected ";} ?> value="0">Male</option>
+                                                                            <option  <?php if($data->sex == 1){echo " selected ";} ?> value="1">Female</option>
                                                                         </select>
                                                                         </div>
                                                                     </div>
@@ -259,8 +259,8 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                         <label for="division">Type of Incident</label>
-                                                                        <input id="courseInput" name="course" class="form-control" list="courseList" placeholder="Start typing…" required />
-                                                                        <datalist id="courseList">
+                                                                        <input id="courseInput" name="incident_type" value="<?= $data->incident_type; ?>" class="form-control" list="incident_type" placeholder="Start typing…" required />
+                                                                        <datalist id="incident_type">
                                                                         <option value="Accident"></option>
                                                                         <option value="Misconduct"></option>
                                                                         <option value="Injury"></option>
@@ -357,7 +357,7 @@
                                                                 <div class="col-lg-3">
                                                                     <div class="form-group">
                                                                     <label for="first-name">Contact No. of Learner</label>
-                                                                        <input type="text" class="form-control" value="<?= $data->contact; ?>" name="contact">
+                                                                        <input type="text" class="form-control" value="<?= $data->vcontact; ?>" name="vcontact">
                                                                     </div>
                                                                 </div>
 
@@ -389,23 +389,16 @@
                                                             <input type="hidden" class="form-control" value="<?= $this->uri->segment(3); ?>" name="id">
                                                             <input type="hidden" class="form-control" value="<?= $this->uri->segment(4); ?>" name="type">
                                                             
-
-                                                            
-                                                    
-
-                                                            <br />
-                                                            <button type="submit" value="submit" class="btn" style="background:#800000">Submit</button>
-
-                                                            </form>
-                                                            <br />
+   
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- end row -->
+
+                                            
                                                                     
                                             
-                                        </form>
                                     </div>
                                 </div>
                                 <!-- end card -->
@@ -413,6 +406,52 @@
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title mb-4">Action Taken</h4>
+
+                                            <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="form-row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="form-group">
+                                                                        <label for="first-name">Immediate Action Taken</label>
+                                                                            <textarea name="immediate_action" class="form-control" rows="5" id="example-textarea"><?= $data->immediate_action; ?></textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="form-group">
+                                                                        <label for="first-name">Recommended Action</label>
+                                                                            <textarea name="recommended" class="form-control" rows="8" id="example-textarea"><?= $data->recommended; ?></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                                            <button type="submit" value="submit" class="btn" style="background:#800000">Submit</button>
+
+                                                            </form>
+                                                            <br />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         
 

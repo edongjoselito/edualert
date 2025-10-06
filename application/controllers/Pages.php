@@ -568,16 +568,22 @@ public function incident_report()
         }    
     } 
 
+    public function ir_endorsed(){
+        $this->Page_model->ir_endorsed();
+        $this->session->set_flashdata('success', 'Successfully saved.');
+        redirect(base_url().'pages/userlist');
+    }
+
 
     public function getSchoolsByDivision() {
-    $division_id = $this->input->post('division_id');
-    $schools = $this->Page_model->one_cond('schools', 'division_id', $division_id);
+        $division_id = $this->input->post('division_id');
+        $schools = $this->Page_model->one_cond('schools', 'division_id', $division_id);
 
-    echo '<option value="">Select School</option>';
-    foreach($schools as $school){
-        echo '<option value="'.$school->school_id.'">'.strtoupper($school->schoolName).'</option>';
+        echo '<option value="">Select School</option>';
+        foreach($schools as $school){
+            echo '<option value="'.$school->school_id.'">'.strtoupper($school->schoolName).'</option>';
+        }
     }
-}
 
     public function log_in(){
 

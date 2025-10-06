@@ -338,6 +338,7 @@ public function process_update(){
         'firstName' => $this->input->post('firstName'), 
         'middleName' => $this->input->post('middleName'), 
         'lastName' => $this->input->post('lastName'), 
+        'reporter_role' => $this->input->post('reporter_role'), 
         'report_email' => $this->input->post('report_email'), 
         'report_date' => $this->input->post('report_date'), 
         'age' => $this->input->post('age'), 
@@ -348,7 +349,30 @@ public function process_update(){
         'mother' => $this->input->post('mother'), 
         'father' => $this->input->post('father'), 
         'emergency_contact' => $this->input->post('emergency_contact'), 
-        'emergency_relation' => $this->input->post('emergency_relation')
+        'emergency_relation' => $this->input->post('emergency_relation'),
+        'vfirstname' => $this->input->post('vfirstname'), 
+        'vmiddlename' => $this->input->post('vmiddlename'), 
+        'vlastname' => $this->input->post('vlastname'), 
+        'vcontact' => $this->input->post('vcontact'), 
+        'involved_role' => $this->input->post('involved_role'), 
+        'sex' => $this->input->post('sex'),
+        'incident_type' => $this->input->post('incident_type'),
+        'immediate_action' => $this->input->post('immediate_action'),
+        'recommended' => $this->input->post('recommended'),
+        'ir_status' => 2,
+        );
+
+    $this->db->where('ir_id', $id);
+    return $this->db->update('incident_report', $data);
+}
+
+public function ir_endorsed(){
+
+    $id = $this->input->post('id'); 
+
+    $data = array(
+        'date_incident' => $this->input->post('date_incident'), 
+        'ir_status' => 4,
         );
 
     $this->db->where('ir_id', $id);
