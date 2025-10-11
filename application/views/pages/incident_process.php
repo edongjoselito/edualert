@@ -441,6 +441,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <input type="hidden" value="<?= $data->ir_status; ?>" name="ir_stat">
 
                                             <br />
                                                             <button type="submit" value="submit" class="btn" style="background:#800000">Submit</button>

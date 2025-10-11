@@ -74,7 +74,7 @@
                                                     <td><span class="badge badge-info"><?= $pos[$row->ir_status]; ?></span></td>
                                                     <td>
                                                         <a href="<?= base_url(); ?>Pages/incident_process/<?= $row->ir_id; ?>/<?= $this->uri->segment(3); ?>" class="btn btn-sm btn-primary">Update</a>
-                                                        <a href="#" class="btn btn-sm btn-purple">View</a>
+                                                        <a href="<?= base_url(); ?>Pages/incedent_report_view/<?= $row->ir_id; ?>" class="btn btn-sm btn-purple">View</a>
                                                         <?php if($this->session->position == 1){ ?>
                                                             <!-- <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#renren_guapo">Action</a> -->
                                                             <a href="#" class="btn btn-sm btn-warning">Change Status</a>
@@ -85,8 +85,8 @@
 
                                                         <?php } ?>
                                                         
-                                                        <a href="#" class="btn btn-sm btn-success">Remarks</a>
-                                                        <a href="#" class="btn btn-sm btn-success">tag</a>
+                                                        <!-- <a href="#" class="btn btn-sm btn-success">Remarks</a> -->
+                                                        <!-- <a href="#" class="btn btn-sm btn-success">tag</a> -->
                                                     </td>
                                                 </tr>
                                                 <?php } ?>
@@ -113,7 +113,7 @@
                                                             $attributes = array('class' => 'parsley-examples');
                                                             echo form_open('pages/ir_endorsed', $attributes);
                                                         ?>
-                                                        <input type="hidden" id="id" />
+                                                        <input type="hidden" id="id" name="id" />
                                                         <div class="form-group">
                                                             <label class="form-label" for="example-textarea">Agencies</label>
                                                             <select class="form-control" name="agencies">
@@ -144,7 +144,7 @@
                                                     </div>
 
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light">Save</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
                                                     </div>
                                                     </form>
                                                 </div>

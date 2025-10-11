@@ -570,8 +570,9 @@ public function incident_report()
 
     public function ir_endorsed(){
         $this->Page_model->ir_endorsed();
+        $this->Page_model->track_insert();
         $this->session->set_flashdata('success', 'Successfully saved.');
-        redirect(base_url().'pages/userlist');
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
 
@@ -700,7 +701,7 @@ public function incident_report()
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>','</div>');
-        $this->form_validation->set_rules('firstName', 'First Name', 'required');
+        $this->form_validation->set_rules('vfirstname', 'First Name', 'required');
 
         if($this->form_validation->run() == FALSE){
 
@@ -728,6 +729,25 @@ public function incident_report()
             redirect(base_url().'pages/incident_process/'.$this->input->post('id').'/'.$this->input->post('type'));
         }    
     } 
+
+    public function incedent_report_view(){
+          
+            $page = "ir_view";
+
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }
+
+            $data['title'] = "Homepage"; 
+            $data['data'] = $this->Page_model->one_cond_row('incident_report','ir_id',$this->uri->segment(3));
+
+            $this->load->view('templates/header');
+            $this->load->view('templates/menu');
+            $this->load->view('pages/'.$page, $data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/footer_basic');
+
+    }
 
    
     

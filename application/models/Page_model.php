@@ -320,6 +320,7 @@ public function two_join_no_cond_gb($t1, $t2, $select, $joinby, $ob, $obval,$gb)
 public function process_update(){
 
     $id = $this->input->post('id'); 
+    $stat = $this->input->post('ir_stat');
 
     $data = array(
         'date_incident' => $this->input->post('date_incident'), 
@@ -359,8 +360,11 @@ public function process_update(){
         'incident_type' => $this->input->post('incident_type'),
         'immediate_action' => $this->input->post('immediate_action'),
         'recommended' => $this->input->post('recommended'),
-        'ir_status' => 2,
         );
+
+        if ($stat == 1) {
+            $data['ir_status'] = 2;
+        }
 
     $this->db->where('ir_id', $id);
     return $this->db->update('incident_report', $data);
@@ -371,12 +375,28 @@ public function ir_endorsed(){
     $id = $this->input->post('id'); 
 
     $data = array(
-        'date_incident' => $this->input->post('date_incident'), 
+        'agencies' => $this->input->post('agencies'), 
         'ir_status' => 4,
         );
 
     $this->db->where('ir_id', $id);
     return $this->db->update('incident_report', $data);
+}
+
+public function track_insert(){
+    date_default_timezone_set('Asia/Manila');
+    $date_now = date('Y-m-d');
+    $time_now = date('H:i:s');
+
+    $data = array(
+        'ir_id' => $this->input->post('id'), 
+        'ir_date' => $data_now, 
+        'remarks' => $this->input->post('remarks'), 
+        'stat' => '',
+        'ir_time' => $data_now
+        );
+
+    return $this->db->update('track', $data);
 }
 
 
